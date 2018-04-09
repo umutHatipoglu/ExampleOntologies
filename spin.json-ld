@@ -1,0 +1,847 @@
+{
+  "@context": {
+    "arg": "http://spinrdf.org/arg#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "sp": "http://spinrdf.org/sp#",
+    "spin": "http://spinrdf.org/spin#",
+    "spl": "http://spinrdf.org/spl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "spin:symbol",
+      "@type": "rdf:Property",
+      "rdfs:comment": "The symbol of a function, e.g. \"=\" for the eq function.",
+      "rdfs:domain": {
+        "@id": "spin:Function"
+      },
+      "rdfs:label": "symbol",
+      "rdfs:range": {
+        "@id": "xsd:string"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "spin:systemProperty"
+      }
+    },
+    {
+      "@id": "spin:constructor",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Can be used to attach a \"constructor\" to a class. A constructor is a SPARQL CONSTRUCT query or INSERT/DELETE Update operation that can add initial values to the current instance. At execution time, the variable ?this is bound to the current instance. Tools can call constructors of a class and its superclasses when an instance of a class has been created. Constructors will also be used to initialize resources that have received a new rdf:type triple as a result of spin:rules firing.",
+      "rdfs:domain": {
+        "@id": "rdfs:Class"
+      },
+      "rdfs:label": "constructor",
+      "rdfs:range": {
+        "@id": "spin:Rule"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "spin:command"
+      }
+    },
+    {
+      "@id": "_:Ndccc919c0c9f410ea34b052c8fc01794",
+      "@type": "spl:Attribute",
+      "rdfs:comment": "the body of the Template",
+      "spl:maxCount": 1,
+      "spl:minCount": 0,
+      "spl:predicate": {
+        "@id": "spin:body"
+      }
+    },
+    {
+      "@id": "spin:Template",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "The metaclass of SPIN templates. Templates are classes that are instances of this class. A template represents a reusable SPARQL query or update request that can be parameterized with arguments. Templates can be instantiated in places where normally a SPARQL query or update request is used, in particular as spin:rules and spin:constraints.",
+      "rdfs:label": "Template",
+      "rdfs:subClassOf": {
+        "@id": "spin:Module"
+      },
+      "spin:constraint": {
+        "@id": "_:Ndccc919c0c9f410ea34b052c8fc01794"
+      }
+    },
+    {
+      "@id": "spin:thisUnbound",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Can be set to true for SPIN rules and constraints that do not require pre-binding the variable ?this with all members of the associated class. This flag should only be set to true if the WHERE clause is sufficiently strong to only bind instances of the associated class, or its subclasses. In those cases, the engine can greatly improve performance of query execution, because it does not need to add clauses to narrow down the WHERE clause.",
+      "rdfs:domain": {
+        "@id": "sp:Construct"
+      },
+      "rdfs:label": "this unbound",
+      "rdfs:range": {
+        "@id": "xsd:boolean"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "spin:systemProperty"
+      }
+    },
+    {
+      "@id": "spin:violationPath",
+      "@type": "rdf:Property",
+      "rdfs:comment": "An optional attribute of ConstraintViolations to provide a path expression from the root resource to the value that is invalid. If this is a URI then the path represents the predicate of a subject/predicate combination. Otherwise it should be a blank node of type sp:Path.",
+      "rdfs:domain": {
+        "@id": "spin:ConstraintViolation"
+      },
+      "rdfs:label": "violation path",
+      "rdfs:range": {
+        "@id": "rdfs:Resource"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "spin:systemProperty"
+      }
+    },
+    {
+      "@id": "spin:Fatal",
+      "@type": "spin:ConstraintViolationLevel",
+      "rdfs:comment": "Indicates that the associated constraint violation is a severe error that must be fixed. Constraint checking engines may decide to stop further evaluation once a fatal error has been detected.",
+      "rdfs:label": "Fatal"
+    },
+    {
+      "@id": "spin:construct",
+      "@type": "spin:MagicProperty",
+      "rdfs:comment": "Evaluates a given sp:Construct or SPIN template call (first argument on the left hand side) and binds the resulting triples to the variables on the right hand side.\n\nExample:\n\n    (?query \"this\" owl:Thing) spin:construct (?s ?p ?o)\n\nwill execute the sp:Construct ?query using the binding of owl:Thing to ?this. The resulting triples will be bound to ?s, ?p and ?o. If any of ?s ?p ?o are bound, it will only return the matching triples.",
+      "rdfs:label": "construct",
+      "rdfs:subClassOf": {
+        "@id": "spin:MagicProperties"
+      }
+    },
+    {
+      "@id": "spin:Module",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "An abstract building block of a SPARQL system. A Module can take Arguments as input and applies them on an input RDF Graph. The Arguments should be declared as spin:constraints.",
+      "rdfs:label": "Module",
+      "rdfs:subClassOf": {
+        "@id": "rdfs:Class"
+      }
+    },
+    {
+      "@id": "spin:Column",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Provides metadata about a column in the result set of a (SPARQL) query, for example of the body queries of SPIN templates. Columns can define human-readable labels that serve as column titles, using rdfs:label.",
+      "rdfs:label": "Column",
+      "rdfs:subClassOf": {
+        "@id": "rdfs:Resource"
+      }
+    },
+    {
+      "@id": "spin:MagicProperties",
+      "@type": "spin:MagicProperty",
+      "rdfs:comment": "An abstract superclass that can be used to group all spin:MagicProperty instances under a single parent class.",
+      "rdfs:label": "Magic properties",
+      "rdfs:subClassOf": {
+        "@id": "spin:Functions"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "spin:systemProperty"
+      },
+      "spin:abstract": true
+    },
+    {
+      "@id": "spin:ConstraintViolationLevel",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "The type of the supported levels of constraint violations, including spin:Error and spin:Warning.",
+      "rdfs:label": "Constraint violation level",
+      "rdfs:subClassOf": {
+        "@id": "rdfs:Resource"
+      }
+    },
+    {
+      "@id": "spin:_arg4",
+      "@type": "sp:Variable",
+      "sp:varName": "arg4"
+    },
+    {
+      "@id": "spin:violationLevel",
+      "@type": "rdf:Property",
+      "rdfs:comment": "An optional attribute of ConstraintViolations to point at a violation level (such as Error and Warning). Defaults to spin:Error.",
+      "rdfs:domain": {
+        "@id": "spin:ConstraintViolation"
+      },
+      "rdfs:label": "violation level",
+      "rdfs:range": {
+        "@id": "spin:ConstraintViolationLevel"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "spin:systemProperty"
+      }
+    },
+    {
+      "@id": "_:N05ffd0c853f64a78b2fc3251bbdc1200",
+      "@type": "spl:Attribute",
+      "rdfs:comment": "The CONSTRUCT query wrapped by this template.",
+      "spl:maxCount": 1,
+      "spl:minCount": 0,
+      "spl:predicate": {
+        "@id": "spin:body"
+      },
+      "spl:valueType": {
+        "@id": "sp:Construct"
+      }
+    },
+    {
+      "@id": "spin:ConstructTemplates",
+      "@type": "spin:ConstructTemplate",
+      "rdfs:comment": "Suggested abstract base class for all ConstructTemplates.",
+      "rdfs:label": "Construct templates",
+      "rdfs:subClassOf": {
+        "@id": "spin:Templates"
+      },
+      "spin:abstract": true
+    },
+    {
+      "@id": "spin:abstract",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Can be set to true to indicate that this module shall not be instantiated. Abstract modules are only there to organize other modules into hierarchies.",
+      "rdfs:domain": {
+        "@id": "spin:Module"
+      },
+      "rdfs:label": "abstract",
+      "rdfs:range": {
+        "@id": "xsd:boolean"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "spin:systemProperty"
+      }
+    },
+    {
+      "@id": "spin:private",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Can be set to true to indicate that a SPIN function or template is only meant to be used as a helper of other modules, but not directly. Among others, this allows user interfaces to filter out private modules. Furthermore, it tells potential users of this module that they should avoid using this module, as it may not be stable.",
+      "rdfs:domain": {
+        "@id": "spin:Module"
+      },
+      "rdfs:label": "private",
+      "rdfs:range": {
+        "@id": "xsd:boolean"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "spin:systemProperty"
+      }
+    },
+    {
+      "@id": "spin:fix",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Can be used to link a ConstraintViolation with one or more UPDATE Templates that would help fix the violation.",
+      "rdfs:domain": {
+        "@id": "spin:ConstraintViolation"
+      },
+      "rdfs:label": "fix",
+      "rdfs:range": {
+        "@id": "spin:UpdateTemplate"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "spin:systemProperty"
+      }
+    },
+    {
+      "@id": "spin:nextRuleProperty",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Can be used to link two sub-properties of spin:rule (or spin:rule itself) to instruct the SPIN engine to execute one set of rules before another one. The values of the subject property will be executed before those of the object property.",
+      "rdfs:domain": {
+        "@id": "spin:RuleProperty"
+      },
+      "rdfs:label": "next rule property",
+      "rdfs:range": {
+        "@id": "spin:RuleProperty"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "spin:systemProperty"
+      }
+    },
+    {
+      "@id": "spin:labelTemplate",
+      "@type": "rdf:Property",
+      "rdfs:comment": "A template string for displaying instantiations of a module in human-readable form. The template may contain the argument variable names in curly braces to support substitution. For example, \"The number of values of the {?arg1} property.\"",
+      "rdfs:domain": {
+        "@id": "spin:Template"
+      },
+      "rdfs:label": "label template",
+      "rdfs:range": {
+        "@id": "xsd:string"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "spin:systemProperty"
+      }
+    },
+    {
+      "@id": "spin:constraint",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Links a class with constraints on its instances. The values of this property are \"axioms\" expressed as CONSTRUCT or ASK queries where the variable ?this refers to the instances of the surrounding class. ASK queries must evaluate to false for each member of this class - returning true means that the instance ?this violates the constraint. CONSTRUCT queries must create instances of spin:ConstraintViolation to provide details on the reason for the violation.",
+      "rdfs:domain": {
+        "@id": "rdfs:Class"
+      },
+      "rdfs:label": "constraint",
+      "rdfs:subPropertyOf": {
+        "@id": "spin:query"
+      }
+    },
+    {
+      "@id": "spin:Info",
+      "@type": "spin:ConstraintViolationLevel",
+      "rdfs:comment": "Indicates that the associated constraint violation is a not a problem. This level can be used for diagnostic and debugging purposes.",
+      "rdfs:label": "Info"
+    },
+    {
+      "@id": "spin:LibraryOntology",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A marker class that can be attached to base URIs (ontologies) to instruct SPIN engines that this ontology only contains a library of SPIN declarations. Library Ontologies should be ignored by SPIN inference engines even if they have been imported by a domain model. For example, a SPIN version of OWL RL may contain all the OWL RL axioms, attached to owl:Thing, but nothing else. However, when executed, these axioms should not be executed over themselves, because we don't want the system to reason about the SPIN triples to speed up things.",
+      "rdfs:label": "Library ontology",
+      "rdfs:subClassOf": {
+        "@id": "owl:Ontology"
+      }
+    },
+    {
+      "@id": "spin:ask",
+      "@type": "spin:Function",
+      "rdfs:comment": "Executes a given ASK query and returns its boolean result. The first argument must point to an sp:Ask or a SPIN template call that has an ASK query as its body. All subsequent argument can come in pairs, with the first one being a variable name and the second its binding.\n\nExample:\n\n    BIND (spin:ask(?query, \"this\", owl:Thing) AS ?result) .\n\nwill execute the sp:Ask behind ?query with the variable ?this pre-bound to owl:Thing.",
+      "rdfs:label": "ask",
+      "rdfs:subClassOf": {
+        "@id": "spin:Functions"
+      }
+    },
+    {
+      "@id": "sp:DeleteWhere",
+      "rdfs:subClassOf": {
+        "@id": "spin:Rule"
+      }
+    },
+    {
+      "@id": "spin:columnWidth",
+      "@type": "rdf:Property",
+      "rdfs:comment": "The preferred width of the associated Column, for display purposes. Values in pixels (rendering engines may multiply the values depending on resolution).",
+      "rdfs:domain": {
+        "@id": "spin:Column"
+      },
+      "rdfs:label": "column width",
+      "rdfs:range": {
+        "@id": "xsd:integer"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "spin:systemProperty"
+      }
+    },
+    {
+      "@id": "sp:Modify",
+      "rdfs:subClassOf": {
+        "@id": "spin:Rule"
+      }
+    },
+    {
+      "@id": "spin:body",
+      "@type": "rdf:Property",
+      "rdfs:comment": "The body of a Function or Template. This points to a Query instance. For Functions, this is limited to either ASK or SELECT type queries. If the body is the ASK function then the return value is xsd:boolean. Otherwise, the SELECT query must have a single return variable. The first binding of this SELECT query will be returned as result of the function call.",
+      "rdfs:label": "body",
+      "rdfs:range": {
+        "@id": "sp:Command"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "spin:systemProperty"
+      }
+    },
+    {
+      "@id": "spin:violationSource",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Can be used to link a spin:ConstraintViolation with the query or template call that caused it. This property is typically filled in automatically by the constraint checking engine and does not need to be set manually. However, it can be useful to learn more about the origin of a violation.",
+      "rdfs:domain": {
+        "@id": "spin:ConstraintViolation"
+      },
+      "rdfs:label": "violation source",
+      "rdfs:range": {
+        "@id": "rdfs:Resource"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "spin:systemProperty"
+      }
+    },
+    {
+      "@id": "spin:Warning",
+      "@type": "spin:ConstraintViolationLevel",
+      "rdfs:comment": "Indicates that the associated constraint violation is a problem that may not have to be fixed but may lead to issues in the future.",
+      "rdfs:label": "Warning"
+    },
+    {
+      "@id": "spin:column",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Can link a TableDataProvider (esp. SelectTemplate) with one or more columns that provide metadata for rendering purposes. Columns can be sorted by their spin:columnIndex (which must align with the ordering of variables in the SELECT query starting with 0). Not all result variables of the underlying query need to have a matching spin:Column.",
+      "rdfs:domain": {
+        "@id": "spin:TableDataProvider"
+      },
+      "rdfs:label": "column",
+      "rdfs:range": {
+        "@id": "spin:Column"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "spin:systemProperty"
+      }
+    },
+    {
+      "@id": "spin:AskTemplates",
+      "@type": "spin:AskTemplate",
+      "rdfs:comment": "Suggested abstract base class for all AskTemplates.",
+      "rdfs:label": "Ask templates",
+      "rdfs:subClassOf": {
+        "@id": "spin:Templates"
+      },
+      "spin:abstract": true
+    },
+    {
+      "@id": "spin:ConstraintViolation",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "An object that can be created by spin:constraints to provide information about a constraint violation.",
+      "rdfs:label": "Constraint violation",
+      "rdfs:subClassOf": {
+        "@id": "rdfs:Resource"
+      }
+    },
+    {
+      "@id": "spin:Function",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Metaclass for functions that can be used in SPARQL expressions (e.g. FILTER or BIND). The function themselves are classes that are instances of this metaclass. Function calls are instances of the function classes, with property values for the arguments.",
+      "rdfs:label": "Function",
+      "rdfs:subClassOf": {
+        "@id": "spin:Module"
+      },
+      "spin:constraint": {
+        "@id": "_:Nbe9fbf75b5f34eb8a7172ad54197043b"
+      }
+    },
+    {
+      "@id": "spin:eval",
+      "@type": "spin:Function",
+      "rdfs:comment": "Evaluates a given SPIN expression or SELECT or ASK query, and returns its result. The first argument must be the expression in SPIN RDF syntax. All other arguments must come in pairs: first a property name, and then a value. These name/value pairs will be pre-bound variables for the execution of the expression.",
+      "rdfs:label": "eval",
+      "rdfs:subClassOf": {
+        "@id": "spin:Functions"
+      }
+    },
+    {
+      "@id": "spin:select",
+      "@type": "spin:MagicProperty",
+      "rdfs:comment": "Executes a given SELECT or ASK query (or a corresponding SPIN template call) and binds its result rows to the variables specified on the right hand side. May also pre-bind variables for the query execution, using name-value pairs on the left hand side.\n\nExample:\n\n    (?query \"this\" owl:Thing) spin:select (?a ?b)\n\nwill execute the sp:Select or sp:Ask that ?query points to and pre-bind ?this with the value of owl:Thing for the execution of the query. The first result variable of the query's result set will be bound to ?a, the second to ?b etc. If the nodes on the right are bound (or constants) then it will match with the values from the result set.",
+      "rdfs:label": "select",
+      "rdfs:subClassOf": {
+        "@id": "spin:MagicProperties"
+      }
+    },
+    {
+      "@id": "spin:SelectTemplates",
+      "@type": "spin:SelectTemplate",
+      "rdfs:comment": "Suggested abstract base class for all SelectTemplates.",
+      "rdfs:label": "Select templates",
+      "rdfs:subClassOf": {
+        "@id": "spin:Templates"
+      },
+      "spin:abstract": true
+    },
+    {
+      "@id": "spin:systemProperty",
+      "@type": "rdf:Property",
+      "rdfs:comment": "An \"abstract\" base property that groups together those system properties that the user will hardly ever need to see in property trees. This property may be dropped in future versions of this ontology - right now it's mainly here for convenience.",
+      "rdfs:label": "system property"
+    },
+    {
+      "@id": "spin:Rule",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Groups together the kinds of SPARQL commands that can appear as SPIN rules and constructors: CONSTRUCT, DELETE WHERE and DELETE/INSERT. This class is never to be instantiated directly.",
+      "rdfs:label": "Rule",
+      "rdfs:subClassOf": {
+        "@id": "sp:Command"
+      }
+    },
+    {
+      "@id": "spin:TableDataProvider",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "An abstraction of objects that can produce tabular data. This serves as a base class of spin:SelectTemplate, because SELECT queries can produce tables with columns for each result variable. However, other types of TableDataProviders are conceivable by other frameworks, and this class may prove as a useful shared foundation.\n\nTableDataProviders can link to definitions of columns via spin:column, and these definitions can inform rendering engines.",
+      "rdfs:label": "Table data provider",
+      "rdfs:subClassOf": {
+        "@id": "rdfs:Class"
+      }
+    },
+    {
+      "@id": "spin:UpdateTemplates",
+      "@type": "spin:UpdateTemplate",
+      "rdfs:comment": "Suggested abstract base class for all UpdateTemplates.",
+      "rdfs:label": "Update templates",
+      "rdfs:subClassOf": {
+        "@id": "spin:Templates"
+      },
+      "spin:abstract": true
+    },
+    {
+      "@id": "spin:AskTemplate",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A SPIN template that wraps an ASK query.",
+      "rdfs:label": "Ask template",
+      "rdfs:subClassOf": {
+        "@id": "spin:Template"
+      },
+      "spin:constraint": {
+        "@id": "_:N25e96f0d935a4c1fbb47de56b588236b"
+      }
+    },
+    {
+      "@id": "spin:command",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Can be used to link a resource with a SPARQL query or update request (sp:Command).",
+      "rdfs:label": "command",
+      "rdfs:range": {
+        "@id": "sp:Command"
+      }
+    },
+    {
+      "@id": "spin:Functions",
+      "@type": "spin:Function",
+      "rdfs:comment": "An abstract base class for all defined functions. This class mainly serves as a shared root so that the various instances of the Function metaclass are grouped together.",
+      "rdfs:label": "Functions",
+      "rdfs:subClassOf": {
+        "@id": "spin:Modules"
+      },
+      "spin:abstract": true
+    },
+    {
+      "@id": "spin:MagicProperty",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Magic property",
+      "rdfs:subClassOf": [
+        {
+          "@id": "rdf:Property"
+        },
+        {
+          "@id": "spin:Function"
+        }
+      ]
+    },
+    {
+      "@id": "sp:Construct",
+      "rdfs:subClassOf": {
+        "@id": "spin:Rule"
+      }
+    },
+    {
+      "@id": "spin:RuleProperty",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "The metaclass of spin:rule and its subproperties. spin:RuleProperties can have additional metadata attached to them.",
+      "rdfs:label": "Rule property",
+      "rdfs:subClassOf": {
+        "@id": "rdf:Property"
+      }
+    },
+    {
+      "@id": "spin:columnType",
+      "@type": "rdf:Property",
+      "rdfs:comment": "The datatype or resource type of a spin:Column. For example this is useful as metadata to inform a rendering engine that numeric columns (e.g. xsd:float) need to be right-aligned.",
+      "rdfs:domain": {
+        "@id": "spin:Column"
+      },
+      "rdfs:label": "column type",
+      "rdfs:range": {
+        "@id": "rdfs:Class"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "spin:systemProperty"
+      }
+    },
+    {
+      "@id": "_:N25e96f0d935a4c1fbb47de56b588236b",
+      "@type": "spl:Attribute",
+      "rdfs:comment": "The ASK query wrapped by this template.",
+      "spl:maxCount": 1,
+      "spl:minCount": 0,
+      "spl:predicate": {
+        "@id": "spin:body"
+      },
+      "spl:valueType": {
+        "@id": "sp:Ask"
+      }
+    },
+    {
+      "@id": "spin:columnIndex",
+      "@type": "rdf:Property",
+      "rdfs:comment": "The index of a column (from left to right) starting at 0.",
+      "rdfs:domain": {
+        "@id": "spin:Column"
+      },
+      "rdfs:label": "column index",
+      "rdfs:range": {
+        "@id": "xsd:integer"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "spin:systemProperty"
+      }
+    },
+    {
+      "@id": "spin:rule",
+      "@type": "spin:RuleProperty",
+      "rdfs:comment": "An inferencing rule attached to a class. Rules are expressed as CONSTRUCT queries or INSERT/DELETE operations where the variable ?this will be bound to the current instance of the class. These inferences can be used to derive new values from existing values at the instance.",
+      "rdfs:domain": {
+        "@id": "rdfs:Class"
+      },
+      "rdfs:label": "rule",
+      "rdfs:range": {
+        "@id": "spin:Rule"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "spin:command"
+      }
+    },
+    {
+      "@id": "spin:UpdateTemplate",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A SPIN template that has an UPDATE command as its body.",
+      "rdfs:label": "Update template",
+      "rdfs:subClassOf": {
+        "@id": "spin:Template"
+      },
+      "spin:constraint": {
+        "@id": "_:N4f0f3a654e914f4eac5f015626151b7f"
+      }
+    },
+    {
+      "@id": "spin:violationRoot",
+      "@type": "rdf:Property",
+      "rdfs:comment": "The root resource of the violation (often ?this in the constraint body).",
+      "rdfs:domain": {
+        "@id": "spin:ConstraintViolation"
+      },
+      "rdfs:label": "violation root",
+      "rdfs:range": {
+        "@id": "rdfs:Resource"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "spin:systemProperty"
+      }
+    },
+    {
+      "@id": "spin:Templates",
+      "@type": "spin:Template",
+      "rdfs:comment": "Suggested abstract base class for all Templates.",
+      "rdfs:label": "Templates",
+      "rdfs:subClassOf": {
+        "@id": "spin:Modules"
+      },
+      "spin:abstract": true
+    },
+    {
+      "@id": "spin:_arg3",
+      "@type": "sp:Variable",
+      "sp:varName": "arg3"
+    },
+    {
+      "@id": "spin:_arg2",
+      "@type": "sp:Variable",
+      "sp:varName": "arg2"
+    },
+    {
+      "@id": "spin:_arg1",
+      "@type": "sp:Variable",
+      "sp:varName": "arg1"
+    },
+    {
+      "@id": "spin:SelectTemplate",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A SPIN template that wraps a SELECT query.",
+      "rdfs:label": "Select template",
+      "rdfs:subClassOf": [
+        {
+          "@id": "spin:TableDataProvider"
+        },
+        {
+          "@id": "spin:Template"
+        }
+      ],
+      "spin:constraint": {
+        "@id": "_:N8195eed0ce214b259fb8ebd747c2c642"
+      }
+    },
+    {
+      "@id": "spin:imports",
+      "@type": "owl:OntologyProperty",
+      "rdfs:comment": "Can be used to link an RDF graph (usually the instance of owl:Ontology) with a SPIN library to define constraints. SPIN-aware tools should include the definitions from those libraries for constraint checking. Using such libraries is a simpler alternative than explicitly importing them using owl:imports, because it does not force all the SPIN triples into the RDF model.",
+      "rdfs:domain": {
+        "@id": "owl:Ontology"
+      },
+      "rdfs:label": "imports",
+      "rdfs:range": {
+        "@id": "owl:Ontology"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "spin:systemProperty"
+      }
+    },
+    {
+      "@id": "spin:violationValue",
+      "@type": "rdf:Property",
+      "rdfs:comment": "An optional attribute of ConstraintViolations to point at a specific RDF node that caused the violation. Should be accessible from the root via the violationPath.",
+      "rdfs:domain": {
+        "@id": "spin:ConstraintViolation"
+      },
+      "rdfs:label": "violation value",
+      "rdfs:subPropertyOf": {
+        "@id": "spin:systemProperty"
+      }
+    },
+    {
+      "@id": "spin:_arg5",
+      "@type": "sp:Variable",
+      "sp:varName": "arg5"
+    },
+    {
+      "@id": "_:N8195eed0ce214b259fb8ebd747c2c642",
+      "@type": "spl:Attribute",
+      "rdfs:comment": "The SELECT query wrapped by this template.",
+      "spl:maxCount": 1,
+      "spl:minCount": 0,
+      "spl:predicate": {
+        "@id": "spin:body"
+      },
+      "spl:valueType": {
+        "@id": "sp:Select"
+      }
+    },
+    {
+      "@id": "spin:ConstructTemplate",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Construct template",
+      "rdfs:subClassOf": {
+        "@id": "spin:Template"
+      },
+      "spin:constraint": {
+        "@id": "_:N05ffd0c853f64a78b2fc3251bbdc1200"
+      }
+    },
+    {
+      "@id": "spin:_this",
+      "@type": "sp:Variable",
+      "rdfs:comment": "A system variable representing the current context instance in a rule or constraint.",
+      "rdfs:label": "_this",
+      "sp:varName": "this"
+    },
+    {
+      "@id": "spin:Modules",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "An \"artificial\" parent class for all Functions and Templates.",
+      "rdfs:label": "Modules",
+      "rdfs:subClassOf": {
+        "@id": "rdfs:Resource"
+      },
+      "spin:constructor": {
+        "@id": "_:N7723b8e3d5a7467dbc82d43a55f140d2"
+      }
+    },
+    {
+      "@id": "spin:cachable",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Can be set to true to instruct the SPIN engine that it may cache the results of all calls to the associated function. Functions should only be marked as cachable if the same combination of input arguments always returns the same result. Functions that query a graph or other background data that may change over time should not be cached. Caching can significantly improve performance of frequently needed functions.",
+      "rdfs:domain": {
+        "@id": "spin:Function"
+      },
+      "rdfs:label": "cachable",
+      "rdfs:range": {
+        "@id": "xsd:boolean"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "spin:systemProperty"
+      }
+    },
+    {
+      "@id": "spin:rulePropertyMaxIterationCount",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Can be attached to spin:rule (or subclasses thereof) to instruct a SPIN rules engine that it shall only execute the rules max times. If no value is specified, then the rules will be executed with no specific limit.",
+      "rdfs:domain": {
+        "@id": "spin:RuleProperty"
+      },
+      "rdfs:label": "rule property max iteration count",
+      "rdfs:range": {
+        "@id": "xsd:integer"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "spin:systemProperty"
+      }
+    },
+    {
+      "@id": "spin:query",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Can be used to point from any resource to a Query.",
+      "rdfs:label": "query",
+      "rdfs:range": {
+        "@id": "sp:Query"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "spin:command"
+      }
+    },
+    {
+      "@id": "spin:update",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Can be used to point from any resource to an Update.",
+      "rdfs:label": "update",
+      "rdfs:range": {
+        "@id": "sp:Update"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "spin:command"
+      }
+    },
+    {
+      "@id": "spin:returnType",
+      "@type": "rdf:Property",
+      "rdfs:comment": "The return type of a Function, e.g. xsd:string.",
+      "rdfs:domain": {
+        "@id": "spin:Function"
+      },
+      "rdfs:label": "return type",
+      "rdfs:range": {
+        "@id": "rdfs:Class"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "spin:systemProperty"
+      }
+    },
+    {
+      "@id": "spin:",
+      "@type": "owl:Ontology",
+      "owl:imports": {
+        "@id": "http://spinrdf.org/sp"
+      },
+      "owl:versionInfo": "1.3.2",
+      "rdfs:comment": "An RDF Schema that can be used to attach constraints and rules to RDFS classes, and to encapsulate reusable SPARQL queries into functions and templates.",
+      "rdfs:label": "SPIN Modeling Vocabulary"
+    },
+    {
+      "@id": "spin:Error",
+      "@type": "spin:ConstraintViolationLevel",
+      "rdfs:comment": "Indicates that the associated constraint violation is an error that should be fixed.",
+      "rdfs:label": "Error"
+    },
+    {
+      "@id": "_:Nbe9fbf75b5f34eb8a7172ad54197043b",
+      "@type": "spl:Attribute",
+      "rdfs:comment": "the body of the function",
+      "spl:maxCount": 1,
+      "spl:minCount": 0,
+      "spl:predicate": {
+        "@id": "spin:body"
+      }
+    },
+    {
+      "@id": "_:N7723b8e3d5a7467dbc82d43a55f140d2",
+      "@type": "spl:ConstructDefaultValues"
+    },
+    {
+      "@id": "_:N4f0f3a654e914f4eac5f015626151b7f",
+      "@type": "spl:Attribute",
+      "rdfs:comment": "The UPDATE command wrapped by this template.",
+      "spl:maxCount": 1,
+      "spl:minCount": 0,
+      "spl:predicate": {
+        "@id": "spin:body"
+      },
+      "spl:valueType": {
+        "@id": "sp:Update"
+      }
+    }
+  ]
+}
+

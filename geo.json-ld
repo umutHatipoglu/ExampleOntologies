@@ -1,0 +1,619 @@
+{
+  "@context": {
+    "basic": "http://def.seegrid.csiro.au/isotc211/iso19103/2005/basic#",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "gm": "http://def.seegrid.csiro.au/isotc211/iso19107/2003/geometry#",
+    "h2o": "http://def.seegrid.csiro.au/isotc211/iso19150/2012/hm2owl#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "spin": "http://spinrdf.org/spin#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "_:N2af07020e990400ab43dfc7c9b42d65a",
+      "@type": "owl:Restriction",
+      "owl:maxCardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      },
+      "owl:onProperty": {
+        "@id": "gm:srs"
+      }
+    },
+    {
+      "@id": "gm:Primitive",
+      "@type": "owl:Class",
+      "dc:description": "GM_Primitive (Figure 8) is the abstract root class of the geometric primitives. Its main purpose is to define the basic \"boundary\" operation that ties the primitives in each dimension together. A geometric primitive (GM_Primitive) is a geometric object that is not decomposed further into other primitives in the system. This includes curves and surfaces, even though they are composed of curve segments and surface patches, respectively. This composition is a strong aggregation: curve segments and surface patches cannot exist outside the context of a primitive.\nNOTE Most geometric primitives are decomposable infinitely many times. Adding a centre point to a line may split that line into two separate lines. A new curve drawn across a surface may divide that surface into two parts, each of which is a surface. This is the reason that the normal definition of primitive as \"non-decomposable\" is not plausible in a geometry model - the only non-decomposable object in geometry is a point.\nAny geometric object that is used to describe a feature is a collection of geometric primitives. A collection of geometric primitives may or may not be a geometric complex. Geometric complexes have additional properties such as closure by boundary operations and mutually exclusive component parts.\nGM_Primitive and GM_Complex share most semantics, in the meaning of operations, attributes and associations. There is an exception in that a GM_Primitive shall not contain its boundary (except in the trivial case of GM_Point where the boundary is empty), while a GM_Complex shall contain its boundary in all cases. This means that if an instantiated object implements GM_Object operations both as GM_Primitive and as a GM_Complex, the semantics of each set theoretic operation is determined by the its name resolution. Specifically, for a particular object such as GM_CompositeCurve, GM_Primitive::contains (returns FALSE for end points) is different from GM_Complex::contains (returns TRUE for end points). Further, if that object is cast as a GM_Primitive value and as a GM_Complex value, then the two values need not be equal as GM_Objects.",
+      "h2o:isAbstract": true,
+      "owl:disjointWith": [
+        {
+          "@id": "gm:Complex"
+        },
+        {
+          "@id": "gm:Aggregate"
+        }
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "http://def.seegrid.csiro.au/isotc211/iso19107/2003/geometry"
+      },
+      "rdfs:label": "Geometric Primitive",
+      "rdfs:subClassOf": {
+        "@id": "gm:Object"
+      },
+      "skos:altLabel": {
+        "@type": "h2o:ISOClassName",
+        "@value": "GM_Primitive"
+      },
+      "skos:notation": {
+        "@type": "h2o:ISOClassName",
+        "@value": "GM_Primitive"
+      },
+      "skos:prefLabel": [
+        {
+          "@language": "en",
+          "@value": "Geometric primitive"
+        },
+        "Geometric Primitive"
+      ]
+    },
+    {
+      "@id": "gm:position",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "_:N302d505c3f2c4ff59fc1f02567009e00"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://def.seegrid.csiro.au/isotc211/iso19107/2003/geometry"
+      },
+      "rdfs:range": {
+        "@id": "gm:Position"
+      }
+    },
+    {
+      "@id": "gm:Aggregate",
+      "@type": "owl:Class",
+      "h2o:isAbstract": true,
+      "rdfs:isDefinedBy": {
+        "@id": "http://def.seegrid.csiro.au/isotc211/iso19107/2003/geometry"
+      },
+      "rdfs:label": "Geometric Aggregate",
+      "rdfs:subClassOf": {
+        "@id": "gm:Object"
+      },
+      "skos:altLabel": {
+        "@type": "h2o:ISOClassName",
+        "@value": "GM_Aggregate"
+      },
+      "skos:notation": {
+        "@type": "h2o:ISOClassName",
+        "@value": "GM_Aggregate"
+      },
+      "skos:prefLabel": [
+        {
+          "@language": "en",
+          "@value": "Geometry aggregate"
+        },
+        "Geometric Aggregate"
+      ]
+    },
+    {
+      "@id": "_:N302d505c3f2c4ff59fc1f02567009e00",
+      "@type": "owl:Class",
+      "owl:unionOf": {
+        "@list": [
+          {
+            "@id": "gm:Object"
+          },
+          {
+            "@id": "http://def.seegrid.csiro.au/isotc211/iso19109/2005/feature#AnyFeature"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "_:N6996d21daa9743a685f64c836706d002",
+      "@type": "owl:Restriction",
+      "owl:cardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      },
+      "owl:onProperty": {
+        "@id": "gm:position"
+      }
+    },
+    {
+      "@id": "gm:Point",
+      "@type": "owl:Class",
+      "rdfs:isDefinedBy": {
+        "@id": "http://def.seegrid.csiro.au/isotc211/iso19107/2003/geometry"
+      },
+      "rdfs:label": "Point",
+      "rdfs:subClassOf": [
+        {
+          "@id": "_:Nae57149be7384d48b991b5fc07c95e07"
+        },
+        {
+          "@id": "gm:Primitive"
+        },
+        {
+          "@id": "_:N6996d21daa9743a685f64c836706d002"
+        }
+      ],
+      "skos:altLabel": {
+        "@type": "h2o:ISOClassName",
+        "@value": "GM_Point"
+      },
+      "skos:notation": {
+        "@type": "h2o:ISOClassName",
+        "@value": "GM_Point"
+      },
+      "skos:prefLabel": [
+        {
+          "@language": "en",
+          "@value": "Geometric point"
+        },
+        "Point"
+      ]
+    },
+    {
+      "@id": "gm:srs",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "_:N014e8104bb3f490490b7940cc2da64bb"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://def.seegrid.csiro.au/isotc211/iso19107/2003/geometry"
+      }
+    },
+    {
+      "@id": "_:Nae57149be7384d48b991b5fc07c95e07",
+      "@type": "owl:Restriction",
+      "owl:allValuesFrom": {
+        "@id": "gm:Position"
+      },
+      "owl:onProperty": {
+        "@id": "gm:position"
+      }
+    },
+    {
+      "@id": "gm:OrientableSurface",
+      "@type": "owl:Class",
+      "rdfs:isDefinedBy": {
+        "@id": "http://def.seegrid.csiro.au/isotc211/iso19107/2003/geometry"
+      },
+      "rdfs:label": "Orientable Surface",
+      "rdfs:subClassOf": {
+        "@id": "gm:OrientablePrimitive"
+      },
+      "skos:altLabel": {
+        "@type": "h2o:ISOClassName",
+        "@value": "GM_OrientableSurface"
+      },
+      "skos:notation": {
+        "@type": "h2o:ISOClassName",
+        "@value": "GM_OrientableSurface"
+      },
+      "skos:prefLabel": [
+        "Orientable Surface",
+        {
+          "@language": "en",
+          "@value": "Orientable surface"
+        }
+      ]
+    },
+    {
+      "@id": "_:Ne4d6816d30d94cffbc569ad26740ab77",
+      "@type": "owl:Restriction",
+      "owl:cardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      },
+      "owl:onProperty": {
+        "@id": "gm:srs"
+      }
+    },
+    {
+      "@id": "_:N36fbbd9fdeed47f0987dc20df8311a86",
+      "@type": "owl:Restriction",
+      "owl:onClass": {
+        "@id": "gm:Position"
+      },
+      "owl:onProperty": {
+        "@id": "gm:upperCorner"
+      },
+      "owl:qualifiedCardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      }
+    },
+    {
+      "@id": "gm:coordinates",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "gm:Position"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://def.seegrid.csiro.au/isotc211/iso19107/2003/geometry"
+      }
+    },
+    {
+      "@id": "_:Nee33253b5bd14b01a695cce0bd9364fa",
+      "@type": "owl:Restriction",
+      "owl:maxCardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      },
+      "owl:onProperty": {
+        "@id": "gm:srs"
+      }
+    },
+    {
+      "@id": "gm:upperCorner",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "gm:Envelope"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://def.seegrid.csiro.au/isotc211/iso19107/2003/geometry"
+      },
+      "rdfs:range": {
+        "@id": "gm:Position"
+      }
+    },
+    {
+      "@id": "gm:OrientableCurve",
+      "@type": "owl:Class",
+      "rdfs:isDefinedBy": {
+        "@id": "http://def.seegrid.csiro.au/isotc211/iso19107/2003/geometry"
+      },
+      "rdfs:label": "Orientable Curve",
+      "rdfs:subClassOf": {
+        "@id": "gm:OrientablePrimitive"
+      },
+      "skos:altLabel": {
+        "@type": "h2o:ISOClassName",
+        "@value": "GM_OrientableCurve"
+      },
+      "skos:notation": {
+        "@type": "h2o:ISOClassName",
+        "@value": "GM_OrientableCurve"
+      },
+      "skos:prefLabel": [
+        {
+          "@language": "en",
+          "@value": "Orientable curve"
+        },
+        "Orientable Curve"
+      ]
+    },
+    {
+      "@id": "_:N9044f1ba8efe41cda28e4ba960c71216",
+      "@type": "owl:Restriction",
+      "owl:onClass": {
+        "@id": "gm:Position"
+      },
+      "owl:onProperty": {
+        "@id": "gm:lowerCorner"
+      },
+      "owl:qualifiedCardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      }
+    },
+    {
+      "@id": "gm:Solid",
+      "@type": "owl:Class",
+      "rdfs:isDefinedBy": {
+        "@id": "http://def.seegrid.csiro.au/isotc211/iso19107/2003/geometry"
+      },
+      "rdfs:label": "Solid",
+      "rdfs:subClassOf": {
+        "@id": "gm:Primitive"
+      },
+      "skos:altLabel": {
+        "@type": "h2o:ISOClassName",
+        "@value": "GM_Solid"
+      },
+      "skos:notation": {
+        "@type": "h2o:ISOClassName",
+        "@value": "GM_Solid"
+      },
+      "skos:prefLabel": [
+        {
+          "@language": "en",
+          "@value": "Solid"
+        },
+        "Solid"
+      ]
+    },
+    {
+      "@id": "gm:",
+      "@type": "owl:Ontology",
+      "dc:creator": {
+        "@type": "rdf:PlainLiteral",
+        "@value": "Simon Jonathan David COX\nCSIRO"
+      },
+      "dc:date": "2012-05-25",
+      "dc:description": {
+        "@type": "rdf:PlainLiteral",
+        "@value": "An OWL representation of part of the model for geometry and space from ISO 19107:2003 Geographic Information - Spatial Schema"
+      },
+      "dc:source": {
+        "@type": "rdf:PlainLiteral",
+        "@value": "ISO 19107:2003"
+      },
+      "dcterms:created": "2010-10-27",
+      "dcterms:modified": "2012-07-24",
+      "owl:imports": [
+        {
+          "@id": "http://def.seegrid.csiro.au/isotc211/iso19150/2012/hm2owl"
+        },
+        {
+          "@id": "http://def.seegrid.csiro.au/isotc211/iso19109/2005/feature"
+        },
+        {
+          "@id": "http://def.seegrid.csiro.au/isotc211/iso19103/2005/basic"
+        }
+      ],
+      "owl:priorVersion": {
+        "@id": "https://www.seegrid.csiro.au/subversion/xmml/ontologies/tags/201210/ISOTC211/HM/geometry.rdf"
+      },
+      "owl:versionIRI": {
+        "@id": "https://www.seegrid.csiro.au/subversion/xmml/ontologies/tags/201305/ISOTC211/HM/geometry.rdf"
+      },
+      "spin:imports": {
+        "@id": "http://topbraid.org/spin/owlrl-all"
+      }
+    },
+    {
+      "@id": "gm:lowerCorner",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "gm:Envelope"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://def.seegrid.csiro.au/isotc211/iso19107/2003/geometry"
+      },
+      "rdfs:range": {
+        "@id": "gm:Position"
+      }
+    },
+    {
+      "@id": "_:N43683be9867b452ab96b3a198c2f8ab8",
+      "@type": "owl:Restriction",
+      "owl:minCardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      },
+      "owl:onProperty": {
+        "@id": "gm:coordinates"
+      }
+    },
+    {
+      "@id": "http://def.seegrid.csiro.au/isotc211/iso19109/2005/feature#AnyFeature",
+      "owl:disjointWith": {
+        "@id": "gm:Object"
+      }
+    },
+    {
+      "@id": "gm:boundingBox",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "http://def.seegrid.csiro.au/isotc211/iso19109/2005/feature#AnyFeature"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://def.seegrid.csiro.au/isotc211/iso19107/2003/geometry"
+      },
+      "rdfs:range": {
+        "@id": "gm:Envelope"
+      }
+    },
+    {
+      "@id": "gm:Object",
+      "@type": "owl:Class",
+      "dc:description": "GM_Object (Figure 6) is the root class of the geometric object taxonomy and supports interfaces common to all geographically referenced geometric objects. GM_Object instances are sets of direct positions in a particular coordinate reference system. A GM_Object can be regarded as an infinite set of points that satisfies the set operation interfaces for a set of direct positions, TransfiniteSet<DirectPosition>. Since an infinite collection class cannot be implemented directly, a Boolean test for inclusion shall be provided by the GM_Object interface. This international standard concentrates on vector geometry classes, but future work may use GM_Object as a root class without modification.\r\nNOTE As a type, GM_Object does not have a well-defined default state or value representation as a data type. Instantiated subclasses of GM_Object will.",
+      "h2o:isAbstract": true,
+      "owl:disjointWith": {
+        "@id": "http://def.seegrid.csiro.au/isotc211/iso19109/2005/feature#AnyFeature"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://def.seegrid.csiro.au/isotc211/iso19107/2003/geometry"
+      },
+      "rdfs:label": "Geometry",
+      "rdfs:subClassOf": [
+        {
+          "@id": "owl:Thing"
+        },
+        {
+          "@id": "_:N2af07020e990400ab43dfc7c9b42d65a"
+        }
+      ],
+      "skos:altLabel": {
+        "@type": "h2o:ISOClassName",
+        "@value": "GM_Object"
+      },
+      "skos:notation": {
+        "@type": "h2o:ISOClassName",
+        "@value": "GM_Object"
+      },
+      "skos:prefLabel": [
+        "Geometry",
+        {
+          "@language": "en",
+          "@value": "Geometry object"
+        }
+      ]
+    },
+    {
+      "@id": "gm:Envelope",
+      "@type": "owl:Class",
+      "dc:description": "GM_Envelope is often referred to as a minimum bounding box or rectangle. Regardless of dimension, a GM_Envelope can be represented without ambiguity as two direct positions (coordinate points). To encode a GM_Envelope, it is sufficient to encode these two points. This is consistent with all of the data types in this standard, their state is represented by their publicly accessible attributes. ",
+      "rdfs:isDefinedBy": {
+        "@id": "http://def.seegrid.csiro.au/isotc211/iso19107/2003/geometry"
+      },
+      "rdfs:subClassOf": [
+        {
+          "@id": "_:Nee33253b5bd14b01a695cce0bd9364fa"
+        },
+        {
+          "@id": "_:N9044f1ba8efe41cda28e4ba960c71216"
+        },
+        {
+          "@id": "_:N36fbbd9fdeed47f0987dc20df8311a86"
+        },
+        {
+          "@id": "owl:Thing"
+        }
+      ],
+      "skos:notation": {
+        "@type": "h2o:ISOClassName",
+        "@value": "GM_Envelope"
+      },
+      "skos:prefLabel": {
+        "@language": "en",
+        "@value": "Envelope"
+      }
+    },
+    {
+      "@id": "gm:OrientablePrimitive",
+      "@type": "owl:Class",
+      "h2o:isAbstract": true,
+      "rdfs:label": "Orientable primitive",
+      "rdfs:subClassOf": {
+        "@id": "gm:Primitive"
+      },
+      "skos:altLabel": {
+        "@type": "h2o:ISOClassName",
+        "@value": "GM_OrientablePrimitive"
+      },
+      "skos:notation": {
+        "@type": "h2o:ISOClassName",
+        "@value": "GM_OrientablePrimitive"
+      },
+      "skos:prefLabel": "Orientable primitive"
+    },
+    {
+      "@id": "gm:Position",
+      "@type": "owl:Class",
+      "dc:description": "DirectPosition object data types (Figure 14) hold the coordinates for a position within some coordinate reference system. The coordinate reference system is described in ISO 19111. Since DirectPositions, as data types, will often be included in larger objects (such as GM_Objects) that have references to ISO19111::SC_CRS, the DirectPosition::cordinateReferenceSystem may be left NULL if this particular DirectPosition is included in a larger object with such a reference to a SC_CRS. In this case, the DirectPosition::coordinateReferenceSystem is implicitly assumed to take on the value of the containing object's SC_CRS. ",
+      "rdfs:isDefinedBy": {
+        "@id": "http://def.seegrid.csiro.au/isotc211/iso19107/2003/geometry"
+      },
+      "rdfs:subClassOf": [
+        {
+          "@id": "_:Ne4d6816d30d94cffbc569ad26740ab77"
+        },
+        {
+          "@id": "_:N43683be9867b452ab96b3a198c2f8ab8"
+        }
+      ],
+      "skos:notation": {
+        "@type": "h2o:ISOClassName",
+        "@value": "DirectPosition"
+      },
+      "skos:prefLabel": {
+        "@language": "en",
+        "@value": "Geometric position"
+      }
+    },
+    {
+      "@id": "_:N014e8104bb3f490490b7940cc2da64bb",
+      "@type": "owl:Class",
+      "owl:unionOf": {
+        "@list": [
+          {
+            "@id": "gm:Object"
+          },
+          {
+            "@id": "gm:Envelope"
+          },
+          {
+            "@id": "gm:Position"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "gm:Complex",
+      "@type": "owl:Class",
+      "dc:description": "geometric complex\r\nset of disjoint geometric primitives such that the boundary of each primitive can be represented as the union of other geometric primitives within the complex\r\n\r\nNOTE:  The geometric primitives in the set are mutually exclusive in the sense that no point is interior to more than one primitive.  The set is closed under boundary operations, meaning that for each element in the complex, there is a collection (also a complex) of geometric primitives that represents the boundary of that element.",
+      "h2o:isAbstract": true,
+      "rdfs:isDefinedBy": {
+        "@id": "http://def.seegrid.csiro.au/isotc211/iso19107/2003/geometry"
+      },
+      "rdfs:label": "Geometric Complex",
+      "rdfs:subClassOf": {
+        "@id": "gm:Object"
+      },
+      "skos:altLabel": {
+        "@type": "h2o:ISOClassName",
+        "@value": "GM_Complex"
+      },
+      "skos:notation": {
+        "@type": "h2o:ISOClassName",
+        "@value": "GM_Complex"
+      },
+      "skos:prefLabel": [
+        "Geometric Complex",
+        {
+          "@language": "en",
+          "@value": "Geometry complex"
+        }
+      ]
+    },
+    {
+      "@id": "gm:Curve",
+      "@type": "owl:Class",
+      "rdfs:isDefinedBy": {
+        "@id": "http://def.seegrid.csiro.au/isotc211/iso19107/2003/geometry"
+      },
+      "rdfs:label": "Curve",
+      "rdfs:subClassOf": {
+        "@id": "gm:OrientableCurve"
+      },
+      "skos:altLabel": {
+        "@type": "h2o:ISOClassName",
+        "@value": "GM_Curve"
+      },
+      "skos:notation": {
+        "@type": "h2o:ISOClassName",
+        "@value": "GM_Curve"
+      },
+      "skos:prefLabel": [
+        {
+          "@language": "en",
+          "@value": "Curve"
+        },
+        "Curve"
+      ]
+    },
+    {
+      "@id": "gm:Surface",
+      "@type": "owl:Class",
+      "rdfs:isDefinedBy": {
+        "@id": "http://def.seegrid.csiro.au/isotc211/iso19107/2003/geometry"
+      },
+      "rdfs:label": "Surface",
+      "rdfs:subClassOf": {
+        "@id": "gm:OrientableSurface"
+      },
+      "skos:altLabel": {
+        "@type": "h2o:ISOClassName",
+        "@value": "GM_Surface"
+      },
+      "skos:notation": {
+        "@type": "h2o:ISOClassName",
+        "@value": "GM_Surface"
+      },
+      "skos:prefLabel": {
+        "@language": "en",
+        "@value": "Surface"
+      }
+    }
+  ]
+}
+

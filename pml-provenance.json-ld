@@ -1,0 +1,1866 @@
+{
+  "@context": {
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "ds": "http://inference-web.org/2.0/ds.owl#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "pmlp": "http://inference-web.org/2.0/pml-provenance.owl#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "pmlp:hasMimetype",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "A well-defined string indicating the mime type of information content. Internet Media Types (MIME). see also http://www.iana.org/assignments/media-types/."
+      },
+      "rdfs:domain": {
+        "@id": "pmlp:Information"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "mime-type"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "_:Nac195456160848fea8ed716b36146ddf",
+      "@type": "owl:Restriction",
+      "owl:maxCardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      },
+      "owl:onProperty": {
+        "@id": "pmlp:hasName"
+      }
+    },
+    {
+      "@id": "pmlp:DeclarativeRule",
+      "@type": "owl:Class",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "A declarative inference rule can be fully specified by patterns for premises and its conclusion.   For example, Modus Ponens, can be specified by the premise patterns ?A,  ?A -&gt; ?B and the conclusion pattern ?B."
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Declarative Rule"
+      },
+      "rdfs:subClassOf": {
+        "@id": "pmlp:InferenceRule"
+      }
+    },
+    {
+      "@id": "pmlp:hasPublicationDateTime",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "When the publication is published."
+      },
+      "rdfs:domain": {
+        "@id": "pmlp:Publication"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "published in"
+      },
+      "rdfs:range": {
+        "@id": "xsd:dateTime"
+      }
+    },
+    {
+      "@id": "pmlp:hasPublisher",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "An agent responsible for making the document publicly available. see also http://purl.org/dc/elements/1.1/publisher."
+      },
+      "rdfs:domain": {
+        "@id": "pmlp:Document"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "publisher"
+      },
+      "rdfs:range": {
+        "@id": "pmlp:Agent"
+      }
+    },
+    {
+      "@id": "pmlp:Sensor",
+      "@type": "owl:Class",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "any device that receives a signal or stimulus (as heat or pressure or light or motion etc.) and records it. (WordNet)"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Sensor"
+      },
+      "rdfs:subClassOf": {
+        "@id": "pmlp:Agent"
+      }
+    },
+    {
+      "@id": "_:N5a5d5de676ab4f68a193d85f2d7ff057",
+      "@type": "owl:Restriction",
+      "owl:maxCardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      },
+      "owl:onProperty": {
+        "@id": "pmlp:hasPrettyNameMappingList"
+      }
+    },
+    {
+      "@id": "pmlp:hasFromRow",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The from row of the fragment (inclusive, index based on 1)"
+      },
+      "rdfs:domain": {
+        "@id": "pmlp:DocumentFragmentByRowCol"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "from-row"
+      },
+      "rdfs:range": {
+        "@id": "xsd:int"
+      }
+    },
+    {
+      "@id": "pmlp:WebService",
+      "@type": "owl:Class",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "services implemented by software and available on the Web"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Web Service"
+      },
+      "rdfs:subClassOf": {
+        "@id": "pmlp:Software"
+      }
+    },
+    {
+      "@id": "pmlp:hasDescription",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The detailed description of the identified thing, e.g. a web page describing KIF language. An identified thing may have zero to many descriptions that could be written in different languages, format, and etc. "
+      },
+      "rdfs:domain": {
+        "@id": "pmlp:IdentifiedThing"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "description"
+      },
+      "rdfs:range": {
+        "@id": "pmlp:Information"
+      }
+    },
+    {
+      "@id": "pmlp:Publication",
+      "@type": "owl:Class",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "If we have two versions of the same publication, we need to create two instances of Publication. A publication may have multiple ISBNs."
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Publication"
+      },
+      "rdfs:subClassOf": [
+        {
+          "@id": "pmlp:Document"
+        },
+        {
+          "@id": "_:N7d118db1d718437088b4582f39400bf6"
+        },
+        {
+          "@id": "_:N28e37eae4d6c4e4aaa67af5411291bc3"
+        }
+      ]
+    },
+    {
+      "@id": "pmlp:DocumentFragmentByRowCol",
+      "@type": "owl:Class",
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Document Fragment by Row/Column"
+      },
+      "rdfs:subClassOf": [
+        {
+          "@id": "_:N380fb11aa16b43a3834c5524c7d4f835"
+        },
+        {
+          "@id": "pmlp:DocumentFragment"
+        },
+        {
+          "@id": "_:Ncb428fe96a724c32a5d9fb3756a78c94"
+        },
+        {
+          "@id": "_:N30a5d4ecf51f4248b9ab31fb7c712646"
+        },
+        {
+          "@id": "_:N71d0167e1dd94d429714a8c46381dd39"
+        }
+      ]
+    },
+    {
+      "@id": "pmlp:hasDocument",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "A document fragment always depend on one source document, which is also the source."
+      },
+      "rdfs:domain": {
+        "@id": "pmlp:DocumentFragment"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "document"
+      },
+      "rdfs:range": {
+        "@id": "pmlp:Document"
+      }
+    },
+    {
+      "@id": "pmlp:hasLanguage",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "it specifies the language used to encode information, e.g. \"Tony's specialty is shellfish\" is encoded in English. This property may also link to a registered formal language such as KIF."
+      },
+      "rdfs:domain": {
+        "@id": "pmlp:Information"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "language"
+      },
+      "rdfs:range": {
+        "@id": "pmlp:Language"
+      }
+    },
+    {
+      "@id": "pmlp:Ontology",
+      "@type": "owl:Class",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "An Ontology is a document that describes a vocabulary of terms and their correlations."
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Ontology"
+      },
+      "rdfs:subClassOf": {
+        "@id": "pmlp:Document"
+      }
+    },
+    {
+      "@id": "_:N187eb027753c4be79eb053f965f9ad70",
+      "@type": "owl:Restriction",
+      "owl:cardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      },
+      "owl:onProperty": {
+        "@id": "pmlp:hasUsageDateTime"
+      }
+    },
+    {
+      "@id": "pmlp:IdentifiedThing",
+      "@type": "owl:Class",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The abstract root of provenance related concepts. It organizes a collection of common metadata about the referenced object, and it does not have any instance. "
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Identified Thing"
+      },
+      "rdfs:subClassOf": [
+        {
+          "@id": "_:Nbe4ec1eff8314507837cf5dc971b13f1"
+        },
+        {
+          "@id": "_:Nac195456160848fea8ed716b36146ddf"
+        },
+        {
+          "@id": "_:N305d9d8bfe0f495383f36b73e08dc56c"
+        },
+        {
+          "@id": "_:N1835dd1b84d649659952f267f7c7e167"
+        }
+      ]
+    },
+    {
+      "@id": "_:N3d17a2b2d69a4040ab895c899227ff66",
+      "@type": "owl:Restriction",
+      "owl:cardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      },
+      "owl:onProperty": {
+        "@id": "pmlp:hasToOffset"
+      }
+    },
+    {
+      "@id": "pmlp:hasShortPrettyName",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "short pretty name"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "pmlp:hasPrettyName"
+      }
+    },
+    {
+      "@id": "pmlp:",
+      "@type": "owl:Ontology",
+      "owl:imports": {
+        "@id": "ds:"
+      },
+      "owl:versionInfo": {
+        "@language": "en",
+        "@value": "version 2.0, Authors: Deborah L. McGuinness, Li Ding, Paulo Pinheiro da Silva, Alyssa Glass, and Cynthia Chang"
+      },
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The provenance part of PML2 ontology. It is a fundamental component of PML2 ontology."
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "PML2 provenance ontology"
+      }
+    },
+    {
+      "@id": "pmlp:Document",
+      "@type": "owl:Class",
+      "owl:disjointWith": {
+        "@id": "pmlp:Agent"
+      },
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "A physical information container that is not actionable. They function like database."
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Document"
+      },
+      "rdfs:subClassOf": [
+        {
+          "@id": "_:N7017acb2d5d541cfbb396cff99ebd7e1"
+        },
+        {
+          "@id": "pmlp:Source"
+        },
+        {
+          "@id": "_:N997026495d3148239215b661ff521ba7"
+        },
+        {
+          "@id": "_:Nc6073ad636cf445898b0a2b31d95fdb7"
+        }
+      ]
+    },
+    {
+      "@id": "_:Nfb2328c349974032a5520267379447e3",
+      "@type": "owl:Restriction",
+      "owl:cardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      },
+      "owl:onProperty": {
+        "@id": "pmlp:hasReplacee"
+      }
+    },
+    {
+      "@id": "_:Naca711e706aa4e7681fad7fbfc43f59b",
+      "@type": "owl:Restriction",
+      "owl:minCardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      },
+      "owl:onProperty": {
+        "@id": "pmlp:hasInferenceEngineRule"
+      }
+    },
+    {
+      "@id": "pmlp:hasVersion",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "the version number."
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "version"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "_:N35d05de1f0654807a28d5f09aafe4836",
+      "@type": "owl:Restriction",
+      "owl:cardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      },
+      "owl:onProperty": {
+        "@id": "pmlp:hasFromOffset"
+      }
+    },
+    {
+      "@id": "_:N305d9d8bfe0f495383f36b73e08dc56c",
+      "@type": "owl:Restriction",
+      "owl:maxCardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      },
+      "owl:onProperty": {
+        "@id": "pmlp:hasAuthorList"
+      }
+    },
+    {
+      "@id": "pmlp:hasToCol",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The to column of the fragment (inclusive, index based on 1)"
+      },
+      "rdfs:domain": {
+        "@id": "pmlp:DocumentFragmentByRowCol"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "to-column"
+      },
+      "rdfs:range": {
+        "@id": "xsd:int"
+      }
+    },
+    {
+      "@id": "pmlp:EmptyInformation",
+      "@type": "owl:Class",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "An instance of information indicating no conclusion has been derived, i.e. empty set of statements. In this case, the rawstring may contain some english message indicating no answer. "
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Empty Information"
+      },
+      "rdfs:subClassOf": {
+        "@id": "pmlp:Information"
+      }
+    },
+    {
+      "@id": "pmlp:hasURL",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The URL of a relevant web page."
+      },
+      "rdfs:domain": {
+        "@id": "pmlp:Information"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "url"
+      },
+      "rdfs:range": {
+        "@id": "xsd:anyURI"
+      }
+    },
+    {
+      "@id": "pmlp:hasReplacee",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "pmlp:PrettyNameMapping"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "replacee"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "_:Nd29f6217e60b435f8f00a851b202242c",
+      "@type": "owl:Restriction",
+      "owl:allValuesFrom": {
+        "@id": "pmlp:Agent"
+      },
+      "owl:onProperty": {
+        "@id": "ds:first"
+      }
+    },
+    {
+      "@id": "pmlp:Person",
+      "@type": "owl:Class",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "A person"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Person"
+      },
+      "rdfs:subClassOf": {
+        "@id": "pmlp:Agent"
+      }
+    },
+    {
+      "@id": "pmlp:hasInferenceEngineRule",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The inference rules used by the inference engine"
+      },
+      "rdfs:domain": {
+        "@id": "pmlp:InferenceEngine"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "uses-inference-rule"
+      },
+      "rdfs:range": {
+        "@id": "pmlp:InferenceRule"
+      }
+    },
+    {
+      "@id": "_:N30a5d4ecf51f4248b9ab31fb7c712646",
+      "@type": "owl:Restriction",
+      "owl:cardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      },
+      "owl:onProperty": {
+        "@id": "pmlp:hasFromRow"
+      }
+    },
+    {
+      "@id": "pmlp:hasAuthorList",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "A list of agents primarily responsible for making the artifact, for example, a person, an organization, or a software service. The AgentList enables an ordered list of agents; however, domain applications may optionally choose to ignore the order. We should be able to derive that each agent is the dc:creator of the artifact."
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "author(s)"
+      },
+      "rdfs:range": {
+        "@id": "pmlp:AgentList"
+      }
+    },
+    {
+      "@id": "pmlp:InferenceRule",
+      "@type": "owl:Class",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Inference rules are used to derive conclusions from premises.\nInference Web divides inference rules into three classes: Primitive and Derived and Translation. \nThis is an abstract class without any direct instance. A primitive rule is an atomic rule with respect to an inference engine. An inference engine may support rules that it does not need to further decompose. Since a primitive rule is an inference engine dependent concept, we may find a rule is primitive to one inference engine but not to another engine. For example a `natural deduction reasoner R1 may define Modus Ponens as a primitive rule and another reasoner R2 may register Robinson's resolution rule as a primitive rule. The reasoner R2 may be able to derive a Modus Ponens rule using its primitive resolution rule. "
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Inference Rule"
+      },
+      "rdfs:subClassOf": [
+        {
+          "@id": "_:Nc78813c8d4794960af391cf34786855c"
+        },
+        {
+          "@id": "pmlp:IdentifiedThing"
+        },
+        {
+          "@id": "_:Nd5184a4e18a54384851498bf2f2261c7"
+        }
+      ]
+    },
+    {
+      "@id": "pmlp:hasOwner",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "the owner of a thing."
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "owner"
+      },
+      "rdfs:range": {
+        "@id": "pmlp:Agent"
+      }
+    },
+    {
+      "@id": "_:Nd3eb4d5a532c41b5bd350307acc8dd82",
+      "@type": "owl:Restriction",
+      "owl:maxCardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      },
+      "owl:onProperty": {
+        "@id": "pmlp:hasDataCollectionEndDateTime"
+      }
+    },
+    {
+      "@id": "_:Nc78813c8d4794960af391cf34786855c",
+      "@type": "owl:Restriction",
+      "owl:maxCardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      },
+      "owl:onProperty": {
+        "@id": "pmlp:hasContent"
+      }
+    },
+    {
+      "@id": "_:N9661bfe0f661421db4be1963b4f84d2a",
+      "@type": "owl:Restriction",
+      "owl:allValuesFrom": {
+        "@id": "pmlp:AgentList"
+      },
+      "owl:onProperty": {
+        "@id": "ds:rest"
+      }
+    },
+    {
+      "@id": "ds:",
+      "@type": "owl:Ontology"
+    },
+    {
+      "@id": "pmlp:hasAbstract",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The abstract of a document."
+      },
+      "rdfs:domain": {
+        "@id": "pmlp:Document"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "abstract"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pmlp:PrettyNameMappingList",
+      "@type": "owl:Class",
+      "rdfs:label": {
+        "@language": "en",
+        "@value": " List of PrettyNameMappings"
+      },
+      "rdfs:subClassOf": [
+        {
+          "@id": "ds:List"
+        },
+        {
+          "@id": "_:Nc0f1b54c0ebf4f8ba55ddea43758677a"
+        },
+        {
+          "@id": "_:N21bff7eb1fac495b86bb15896502db57"
+        }
+      ]
+    },
+    {
+      "@id": "pmlp:hasConfidenceValue",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "this is a common property and can be used to describe an agent's confidence \n        on a piece of information or an action step.It is typically used together with an object property\n        indicating who asserted the confidence. For example, an inference engine may be one example.\n        Although we did not specified its cardinality, it is typically used only once in one individual."
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "confidence"
+      },
+      "rdfs:range": {
+        "@id": "xsd:double"
+      }
+    },
+    {
+      "@id": "pmlp:InferenceEngine",
+      "@type": "owl:Class",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "An inference engine represents an engine that is able to produce a justification for a conclusion. Note that the phrase \"inference engine\" applies not only to reasoners but also to other systems like search engines which may justify their answers by direct assertion"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Inference Engine"
+      },
+      "rdfs:subClassOf": [
+        {
+          "@id": "pmlp:Software"
+        },
+        {
+          "@id": "_:Naca711e706aa4e7681fad7fbfc43f59b"
+        }
+      ]
+    },
+    {
+      "@id": "pmlp:hasPrettyNameMappingList",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The rendering instruction. UI tools may feed the PrettyNameMapping in sequence to string replace operation to get a pretty rendering of the conclusion of a NodeSet. It only applies to the conclusion of the node set."
+      },
+      "rdfs:domain": {
+        "@id": "pmlp:Information"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "pretty name mapping"
+      },
+      "rdfs:range": {
+        "@id": "pmlp:PrettyNameMappingList"
+      }
+    },
+    {
+      "@id": "pmlp:Agent",
+      "@type": "owl:Class",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "actionalble entities."
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Agent"
+      },
+      "rdfs:subClassOf": {
+        "@id": "pmlp:Source"
+      }
+    },
+    {
+      "@id": "pmlp:hasEncoding",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The content encoding, e.g. \"base64\". The value of this property helps applications determine the decoder of the raw string.\t"
+      },
+      "rdfs:domain": {
+        "@id": "pmlp:Information"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "encoding"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pmlp:DocumentFragmentByOffset",
+      "@type": "owl:Class",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "We may treat a document a one dimensional string, so we can mark a fragment with two offsets. We don't use byte because characters in text document may be multi-bytes."
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Document Fragment by Offset"
+      },
+      "rdfs:subClassOf": [
+        {
+          "@id": "_:N35d05de1f0654807a28d5f09aafe4836"
+        },
+        {
+          "@id": "pmlp:DocumentFragment"
+        },
+        {
+          "@id": "_:N3d17a2b2d69a4040ab895c899227ff66"
+        }
+      ]
+    },
+    {
+      "@id": "_:N874a84a63dc34e2c8cdae7e26d6e0487",
+      "@type": "owl:Restriction",
+      "owl:maxCardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      },
+      "owl:onProperty": {
+        "@id": "pmlp:hasUsageQueryContent"
+      }
+    },
+    {
+      "@id": "pmlp:hasUsageQueryContent",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The query content that leads to the source usage. e.g. the query part of a URL."
+      },
+      "rdfs:domain": {
+        "@id": "pmlp:SourceUsage"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "query-content"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "pmlp:hasContent"
+      }
+    },
+    {
+      "@id": "_:N84dd0f03df5e4ded82c65005efcc29ea",
+      "@type": "owl:Restriction",
+      "owl:maxCardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      },
+      "owl:onProperty": {
+        "@id": "pmlp:hasReferenceSourceUsage"
+      }
+    },
+    {
+      "@id": "pmlp:MethodRule",
+      "@type": "owl:Class",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "A method inference rule, uses patterns for premises and its conclusions, and additionally contains a method that must be applied.  In addition, \nthe conclusion needs to be a valid output of the method, using the premises.  For example, procedural attachment is a common encoding form for method rules."
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Method Rule"
+      },
+      "rdfs:subClassOf": {
+        "@id": "pmlp:InferenceRule"
+      }
+    },
+    {
+      "@id": "pmlp:hasEscapeCharacterSequence",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The escape character used by a (formal) language (for parse use). It is used more like a comment indicator. This is used by InferenceML to embed metalangauge for proof checking (talk to Priyendra Deshwa)."
+      },
+      "rdfs:domain": {
+        "@id": "pmlp:Language"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "escape character sequence"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pmlp:hasFromOffset",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The from offset of the fragment (inclusive, index based on 0)."
+      },
+      "rdfs:domain": {
+        "@id": "pmlp:DocumentFragmentByOffset"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "from-offset"
+      },
+      "rdfs:range": {
+        "@id": "xsd:int"
+      }
+    },
+    {
+      "@id": "_:N4cd48d0a263f45fbbea0cf48741d8253",
+      "@type": "owl:Restriction",
+      "owl:maxCardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      },
+      "owl:onProperty": {
+        "@id": "pmlp:hasPrettyString"
+      }
+    },
+    {
+      "@id": "pmlp:hasSource",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "the source of the Source Usage, i.e. where does it come from."
+      },
+      "rdfs:domain": {
+        "@id": "pmlp:SourceUsage"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "source"
+      },
+      "rdfs:range": {
+        "@id": "pmlp:Source"
+      }
+    },
+    {
+      "@id": "_:N6cbe0e9b6f8a4df0ab091d38c931d563",
+      "@type": "owl:Restriction",
+      "owl:maxCardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      },
+      "owl:onProperty": {
+        "@id": "pmlp:hasToLanguage"
+      }
+    },
+    {
+      "@id": "_:N4dd09d9df5814b6194b25081a524b8eb",
+      "@type": "owl:Restriction",
+      "owl:maxCardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      },
+      "owl:onProperty": {
+        "@id": "pmlp:hasVersion"
+      }
+    },
+    {
+      "@id": "_:Ne0353a8ee98f4a46bbcbdde49cef64b6",
+      "@type": "owl:Restriction",
+      "owl:maxCardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      },
+      "owl:onProperty": {
+        "@id": "pmlp:hasRawString"
+      }
+    },
+    {
+      "@id": "_:Nbe4ec1eff8314507837cf5dc971b13f1",
+      "@type": "owl:Restriction",
+      "owl:maxCardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      },
+      "owl:onProperty": {
+        "@id": "pmlp:hasOwner"
+      }
+    },
+    {
+      "@id": "pmlp:hasFormat",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "it specifies the format of information, e.g. \"pdf\", \"ppt\" (Power Point). It is mainly used to determine the appropriate application for process/display purpose."
+      },
+      "rdfs:domain": {
+        "@id": "pmlp:Information"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "format"
+      },
+      "rdfs:range": {
+        "@id": "pmlp:Format"
+      }
+    },
+    {
+      "@id": "pmlp:hasUsageDateTime",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "the time stamp when the source usage occurred."
+      },
+      "rdfs:domain": {
+        "@id": "pmlp:SourceUsage"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "usage-datetime"
+      },
+      "rdfs:range": {
+        "@id": "xsd:dateTime"
+      }
+    },
+    {
+      "@id": "pmlp:hasEnglishDescriptionTemplate",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "it is sub-property of rdfs:comment. It is also a simplified template for adding rule description template in English rather than using hasDescription."
+      },
+      "rdfs:domain": {
+        "@id": "pmlp:InferenceRule"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "english-description-template"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pmlp:hasISBN",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The International Standard Book Number."
+      },
+      "rdfs:domain": {
+        "@id": "pmlp:Publication"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "isbn"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "_:N380fb11aa16b43a3834c5524c7d4f835",
+      "@type": "owl:Restriction",
+      "owl:cardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      },
+      "owl:onProperty": {
+        "@id": "pmlp:hasFromCol"
+      }
+    },
+    {
+      "@id": "pmlp:usesInferenceEngine",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The inference engine used by an agent"
+      },
+      "rdfs:domain": {
+        "@id": "pmlp:Agent"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "uses-inference-engine"
+      },
+      "rdfs:range": {
+        "@id": "pmlp:InferenceEngine"
+      }
+    },
+    {
+      "@id": "pmlp:Language",
+      "@type": "owl:Class",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The language used to encode the raw string, e.g. English, Knowledge Interchange Format (KIF) , and N3. Languages are in general registered at the core IWRegistry."
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Language"
+      },
+      "rdfs:subClassOf": {
+        "@id": "pmlp:IdentifiedThing"
+      }
+    },
+    {
+      "@id": "pmlp:Organization",
+      "@type": "owl:Class",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "A group of agents organized for a particular purpose, e.g., KSL, stanford."
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Organization"
+      },
+      "rdfs:subClassOf": {
+        "@id": "pmlp:Agent"
+      }
+    },
+    {
+      "@id": "pmlp:PrettyNameMapping",
+      "@type": "owl:Class",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "specially designed for pretty display purpose."
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Pretty Name Mapping"
+      },
+      "rdfs:subClassOf": [
+        {
+          "@id": "_:Na0224305fc3244928c38c977b246a867"
+        },
+        {
+          "@id": "_:Nfb2328c349974032a5520267379447e3"
+        }
+      ]
+    },
+    {
+      "@id": "_:Nd73e9b125a2f4f59b33cb44883dbc4e7",
+      "@type": "owl:Restriction",
+      "owl:cardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      },
+      "owl:onProperty": {
+        "@id": "pmlp:hasDocument"
+      }
+    },
+    {
+      "@id": "pmlp:hasReferenceSourceUsage",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Explain how this information is obtained from a source: by whom, when, which source and which part of the source."
+      },
+      "rdfs:domain": {
+        "@id": "pmlp:Information"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "reference source usage"
+      },
+      "rdfs:range": {
+        "@id": "pmlp:SourceUsage"
+      }
+    },
+    {
+      "@id": "pmlp:hasPrettyString",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "the human friendly presentation of the information. Its format is text and it is usually written in English."
+      },
+      "rdfs:domain": {
+        "@id": "pmlp:Information"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "pretty-string"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pmlp:hasRawString",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "materialized version of the content of information"
+      },
+      "rdfs:domain": {
+        "@id": "pmlp:Information"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "raw-string"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "pmlp:hasDataCollectionStartDateTime",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "the time stamp when data collection started"
+      },
+      "rdfs:domain": {
+        "@id": "pmlp:LearnedSourceUsage"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "data-collection-start-datetime"
+      },
+      "rdfs:range": {
+        "@id": "xsd:dateTime"
+      }
+    },
+    {
+      "@id": "pmlp:hasModificationDateTime",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "When the artifact has been modified."
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "last modified"
+      },
+      "rdfs:range": {
+        "@id": "xsd:dateTime"
+      }
+    },
+    {
+      "@id": "pmlp:AgentList",
+      "@type": "owl:Class",
+      "rdfs:label": {
+        "@language": "en",
+        "@value": " List of Agents"
+      },
+      "rdfs:subClassOf": [
+        {
+          "@id": "_:Nd29f6217e60b435f8f00a851b202242c"
+        },
+        {
+          "@id": "ds:List"
+        },
+        {
+          "@id": "_:N9661bfe0f661421db4be1963b4f84d2a"
+        }
+      ]
+    },
+    {
+      "@id": "pmlp:hasCreationDateTime",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "When the artifact has been first created."
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "created"
+      },
+      "rdfs:range": {
+        "@id": "xsd:dateTime"
+      }
+    },
+    {
+      "@id": "_:N7d118db1d718437088b4582f39400bf6",
+      "@type": "owl:Restriction",
+      "owl:maxCardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      },
+      "owl:onProperty": {
+        "@id": "pmlp:hasISBN"
+      }
+    },
+    {
+      "@id": "_:Nb00d6ed6954d45bbb4740942050b14bc",
+      "@type": "owl:Restriction",
+      "owl:maxCardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      },
+      "owl:onProperty": {
+        "@id": "pmlp:hasURL"
+      }
+    },
+    {
+      "@id": "_:N15fec0a4b3b940fd9261f6bcc2c3cea3",
+      "@type": "owl:Restriction",
+      "owl:maxCardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      },
+      "owl:onProperty": {
+        "@id": "pmlp:hasFormat"
+      }
+    },
+    {
+      "@id": "_:Na0224305fc3244928c38c977b246a867",
+      "@type": "owl:Restriction",
+      "owl:cardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      },
+      "owl:onProperty": {
+        "@id": "pmlp:hasShortPrettyName"
+      }
+    },
+    {
+      "@id": "pmlp:hasRuleExample",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "it is sub-property of rdfs:comment. It is used to provide an example to help users understand the referred entity."
+      },
+      "rdfs:domain": {
+        "@id": "pmlp:InferenceRule"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "rule example"
+      },
+      "rdfs:range": {
+        "@id": "pmlp:Information"
+      }
+    },
+    {
+      "@id": "pmlp:hasMember",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "An organization may have member agents such as persons and other organizations."
+      },
+      "rdfs:domain": {
+        "@id": "pmlp:Organization"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "member"
+      },
+      "rdfs:range": {
+        "@id": "pmlp:Agent"
+      }
+    },
+    {
+      "@id": "pmlp:isMemberOf",
+      "@type": "owl:ObjectProperty",
+      "owl:inverseOf": {
+        "@id": "pmlp:hasMember"
+      },
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "An organization may have member agents such as persons and other organizations."
+      },
+      "rdfs:domain": {
+        "@id": "pmlp:Agent"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "member of"
+      },
+      "rdfs:range": {
+        "@id": "pmlp:Organization"
+      }
+    },
+    {
+      "@id": "_:N28e37eae4d6c4e4aaa67af5411291bc3",
+      "@type": "owl:Restriction",
+      "owl:maxCardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      },
+      "owl:onProperty": {
+        "@id": "pmlp:hasPublicationDateTime"
+      }
+    },
+    {
+      "@id": "_:Nd5184a4e18a54384851498bf2f2261c7",
+      "@type": "owl:Restriction",
+      "owl:maxCardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      },
+      "owl:onProperty": {
+        "@id": "pmlp:hasEnglishDescriptionTemplate"
+      }
+    },
+    {
+      "@id": "_:N07f3cb651573476e83aca5762c72ea6e",
+      "@type": "owl:Restriction",
+      "owl:maxCardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      },
+      "owl:onProperty": {
+        "@id": "pmlp:hasFromLanguage"
+      }
+    },
+    {
+      "@id": "_:N997026495d3148239215b661ff521ba7",
+      "@type": "owl:Restriction",
+      "owl:maxCardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      },
+      "owl:onProperty": {
+        "@id": "pmlp:hasAbstract"
+      }
+    },
+    {
+      "@id": "pmlp:TranslationRule",
+      "@type": "owl:Class",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Translation rules are special kinds of inference rules which are used to translate expressions from one language to the other."
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Translation Rule"
+      },
+      "rdfs:subClassOf": [
+        {
+          "@id": "pmlp:MethodRule"
+        },
+        {
+          "@id": "_:N6cbe0e9b6f8a4df0ab091d38c931d563"
+        },
+        {
+          "@id": "_:N07f3cb651573476e83aca5762c72ea6e"
+        }
+      ]
+    },
+    {
+      "@id": "pmlp:Dataset",
+      "@type": "owl:Class",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "A dataset is a collection of data document whose information is encoded in a defined structure (for example, lists, tables, and databases). see also http://purl.org/dc/dcmitype/Dataset."
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Dataset"
+      },
+      "rdfs:subClassOf": {
+        "@id": "pmlp:Document"
+      }
+    },
+    {
+      "@id": "_:N1835dd1b84d649659952f267f7c7e167",
+      "@type": "owl:Restriction",
+      "owl:maxCardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      },
+      "owl:onProperty": {
+        "@id": "pmlp:hasCreationDateTime"
+      }
+    },
+    {
+      "@id": "pmlp:Website",
+      "@type": "owl:Class",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Collection of files and related resources accessible through the World Wide Web and organized under a particular domain name. Typical files found at a Web site are HTML documents with their associated graphic image files (GIF, JPEG, etc.), scripted programs (in Perl, CGI, Java, etc.), and similar resources. The site's files are usually accessed through hypertext or hyperlinks embedded in other files. A Web site may consist of a single HTML file, or it may comprise hundreds or thousands of related files. A Web site's usual starting point or opening page, called a home page, usually functions as a table of contents or index, with links to other sections of the site. Web sites are hosted on one or more Web servers, which transfer files to client computers or other servers that request them using the HTTP protocol. Although the term ?ite?implies a single physical location, the files and resources of a Web site may actually be spread among several servers in different geographic locations.(adapted from Britannica Concise Encyclopedia)."
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Website"
+      },
+      "rdfs:subClassOf": {
+        "@id": "pmlp:Document"
+      }
+    },
+    {
+      "@id": "pmlp:Software",
+      "@type": "owl:Class",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "written programs or procedures or rules and associated documentation pertaining to the operation of a computer system and that are stored in read/write memory.(WordNet)"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Software"
+      },
+      "rdfs:subClassOf": [
+        {
+          "@id": "_:N4dd09d9df5814b6194b25081a524b8eb"
+        },
+        {
+          "@id": "pmlp:Agent"
+        }
+      ]
+    },
+    {
+      "@id": "pmlp:hasToLanguage",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "language used by the target."
+      },
+      "rdfs:domain": {
+        "@id": "pmlp:TranslationRule"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "to-language"
+      },
+      "rdfs:range": {
+        "@id": "pmlp:Language"
+      }
+    },
+    {
+      "@id": "pmlp:hasName",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "the human readable label of the identified thing."
+      },
+      "rdfs:domain": {
+        "@id": "pmlp:IdentifiedThing"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "name"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "_:N71d0167e1dd94d429714a8c46381dd39",
+      "@type": "owl:Restriction",
+      "owl:cardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      },
+      "owl:onProperty": {
+        "@id": "pmlp:hasToRow"
+      }
+    },
+    {
+      "@id": "_:N21bff7eb1fac495b86bb15896502db57",
+      "@type": "owl:Restriction",
+      "owl:allValuesFrom": {
+        "@id": "pmlp:PrettyNameMapping"
+      },
+      "owl:onProperty": {
+        "@id": "ds:first"
+      }
+    },
+    {
+      "@id": "_:N2046f89deedc49e5af8437625e34f232",
+      "@type": "owl:Restriction",
+      "owl:cardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      },
+      "owl:onProperty": {
+        "@id": "pmlp:hasSource"
+      }
+    },
+    {
+      "@id": "pmlp:hasFromLanguage",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "language used by the source."
+      },
+      "rdfs:domain": {
+        "@id": "pmlp:TranslationRule"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "from-language"
+      },
+      "rdfs:range": {
+        "@id": "pmlp:Language"
+      }
+    },
+    {
+      "@id": "pmlp:SourceUsage",
+      "@type": "owl:Class",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "A usage of the source. It records an access of a source at a certain date time."
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Source Usage"
+      },
+      "rdfs:subClassOf": [
+        {
+          "@id": "pmlp:IdentifiedThing"
+        },
+        {
+          "@id": "_:N2046f89deedc49e5af8437625e34f232"
+        },
+        {
+          "@id": "_:N187eb027753c4be79eb053f965f9ad70"
+        },
+        {
+          "@id": "_:N874a84a63dc34e2c8cdae7e26d6e0487"
+        }
+      ]
+    },
+    {
+      "@id": "pmlp:hasPrettyName",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {
+        "@id": "pmlp:PrettyNameMapping"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "pretty name"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "_:N7fca258359014673a661bd770cd17ec2",
+      "@type": "owl:Restriction",
+      "owl:maxCardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      },
+      "owl:onProperty": {
+        "@id": "pmlp:hasLanguage"
+      }
+    },
+    {
+      "@id": "_:N7017acb2d5d541cfbb396cff99ebd7e1",
+      "@type": "owl:Restriction",
+      "owl:maxCardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      },
+      "owl:onProperty": {
+        "@id": "pmlp:hasContent"
+      }
+    },
+    {
+      "@id": "_:Nc6073ad636cf445898b0a2b31d95fdb7",
+      "@type": "owl:Restriction",
+      "owl:maxCardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      },
+      "owl:onProperty": {
+        "@id": "pmlp:hasVersion"
+      }
+    },
+    {
+      "@id": "pmlp:hasLongPrettyName",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "long pretty name"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "pmlp:hasPrettyName"
+      }
+    },
+    {
+      "@id": "pmlp:DocumentFragment",
+      "@type": "owl:Class",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "A fragment of document that can be used as source."
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Document Fragment"
+      },
+      "rdfs:subClassOf": [
+        {
+          "@id": "pmlp:Source"
+        },
+        {
+          "@id": "_:Nd73e9b125a2f4f59b33cb44883dbc4e7"
+        }
+      ]
+    },
+    {
+      "@id": "pmlp:hasDataCollectionEndDateTime",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "the time stamp when data collection ended"
+      },
+      "rdfs:domain": {
+        "@id": "pmlp:LearnedSourceUsage"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "data-collection-end-datetime"
+      },
+      "rdfs:range": {
+        "@id": "xsd:dateTime"
+      }
+    },
+    {
+      "@id": "pmlp:hasContent",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": " This is a common concept that links to a piece of information. Currently, we focus on content of document, and inference rule."
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "content"
+      },
+      "rdfs:range": {
+        "@id": "pmlp:Information"
+      }
+    },
+    {
+      "@id": "_:Nc0f1b54c0ebf4f8ba55ddea43758677a",
+      "@type": "owl:Restriction",
+      "owl:allValuesFrom": {
+        "@id": "pmlp:PrettyNameMappingList"
+      },
+      "owl:onProperty": {
+        "@id": "ds:rest"
+      }
+    },
+    {
+      "@id": "pmlp:hasToRow",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The to row of the fragment (inclusive, index based on 1)"
+      },
+      "rdfs:domain": {
+        "@id": "pmlp:DocumentFragmentByRowCol"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "to-row"
+      },
+      "rdfs:range": {
+        "@id": "xsd:int"
+      }
+    },
+    {
+      "@id": "_:Ncb428fe96a724c32a5d9fb3756a78c94",
+      "@type": "owl:Restriction",
+      "owl:cardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      },
+      "owl:onProperty": {
+        "@id": "pmlp:hasToCol"
+      }
+    },
+    {
+      "@id": "pmlp:hasToOffset",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The to offset of the fragment (exclusive, index based on 0)"
+      },
+      "rdfs:domain": {
+        "@id": "pmlp:DocumentFragmentByOffset"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "to-offset"
+      },
+      "rdfs:range": {
+        "@id": "xsd:int"
+      }
+    },
+    {
+      "@id": "pmlp:LearnedSourceUsage",
+      "@type": "owl:Class",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "A special type of source usage. It records the modification of sources - the question that initiates the learning process, the duration of learning, the original source and current source used by learning."
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Learned Source Usage"
+      },
+      "rdfs:subClassOf": [
+        {
+          "@id": "_:Nd3eb4d5a532c41b5bd350307acc8dd82"
+        },
+        {
+          "@id": "pmlp:SourceUsage"
+        },
+        {
+          "@id": "_:N81bc766a3c024858aa17e006195578dd"
+        }
+      ]
+    },
+    {
+      "@id": "_:N81bc766a3c024858aa17e006195578dd",
+      "@type": "owl:Restriction",
+      "owl:maxCardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      },
+      "owl:onProperty": {
+        "@id": "pmlp:hasDataCollectionStartDateTime"
+      }
+    },
+    {
+      "@id": "pmlp:Source",
+      "@type": "owl:Class",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "A source refers to the source of information. It is the place where we obtain information."
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Source"
+      },
+      "rdfs:subClassOf": {
+        "@id": "pmlp:IdentifiedThing"
+      }
+    },
+    {
+      "@id": "pmlp:Information",
+      "@type": "owl:Class",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "A piece of information, e.g. a formula in logic languages, and an utterance/word/phrase/sentence/paragraph/article in natural language. It is used as a range of iw:hasContent. This class and two of its sub-classes enable users to specify four types of semantics  (i) Information Annotation - annotate just the format and language used by the content of information; (ii) Information With Content - additionally provide the content of information that is materialized as string without loading a web page; (iii) Information external - additionally provide the URL for fetching the content; and (iv) Information - with every thing including the content string and URL. The second semantics is especially useful when the content is short or mainly used locally. For example, when learning by instruction, the utterances used for learning can be stored within the PML document without being externally stored. By assigning URI reference to information, we can even use owl:sameAs to capture the equivalence of two pieces of information. "
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Information"
+      },
+      "rdfs:subClassOf": [
+        {
+          "@id": "pmlp:IdentifiedThing"
+        },
+        {
+          "@id": "_:Ne0353a8ee98f4a46bbcbdde49cef64b6"
+        },
+        {
+          "@id": "_:N4cd48d0a263f45fbbea0cf48741d8253"
+        },
+        {
+          "@id": "_:Nb00d6ed6954d45bbb4740942050b14bc"
+        },
+        {
+          "@id": "_:N15fec0a4b3b940fd9261f6bcc2c3cea3"
+        },
+        {
+          "@id": "_:N84dd0f03df5e4ded82c65005efcc29ea"
+        },
+        {
+          "@id": "_:N7fca258359014673a661bd770cd17ec2"
+        },
+        {
+          "@id": "_:N5a5d5de676ab4f68a193d85f2d7ff057"
+        }
+      ]
+    },
+    {
+      "@id": "pmlp:Format",
+      "@type": "owl:Class",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "A plan for the organization and arrangement of specified information. Examples: binary, text,  pdf, etc."
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Format"
+      },
+      "rdfs:subClassOf": {
+        "@id": "pmlp:IdentifiedThing"
+      }
+    },
+    {
+      "@id": "pmlp:hasFromCol",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The from column of the fragment (inclusive, index based on 1)"
+      },
+      "rdfs:domain": {
+        "@id": "pmlp:DocumentFragmentByRowCol"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "from-column"
+      },
+      "rdfs:range": {
+        "@id": "xsd:int"
+      }
+    }
+  ]
+}
+

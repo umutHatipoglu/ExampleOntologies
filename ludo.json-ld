@@ -1,0 +1,2922 @@
+{
+  "@context": {
+    "cc": "http://creativecommons.org/ns#",
+    "dbpedia": "http://dbpedia.org/resource/",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "ns0": "http://purl.org/vocab/vann/",
+    "ns1": "http://www.w3.org/2003/06/sw-vocab-status/ns#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "void": "http://rdfs.org/ns/void#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#isSolid",
+      "@type": "owl:DatatypeProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Solidity"
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#SoidityState"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Solidity"
+      },
+      "rdfs:range": {
+        "@id": "xsd:boolean"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasGameRule",
+      "@type": "owl:ObjectProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "This property relates a Game Simulation with a Game Rule"
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameSimulation"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Has Game Rule"
+      },
+      "rdfs:range": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameRule"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasArea",
+      "@type": "owl:ObjectProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Relates an Area with any component to be represented graphically on the game screen, sucha as GUI components and Media components"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Has area"
+      },
+      "rdfs:range": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#Area"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasGameControlInterface",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Has Game Control Interface"
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameControl"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Has Game Control Interface"
+      },
+      "rdfs:range": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameControlInterface"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameEnvironment",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Represents the composition of the virtual world by populating the virtual space with game objects."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Game Environment"
+      },
+      "rdfs:subClassOf": {
+        "@id": "owl:Thing"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameAttribute",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Data properties that represent a game objects vitality, physical being, cognitive state and ownership."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Game Attribute"
+      },
+      "rdfs:subClassOf": {
+        "@id": "owl:Thing"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasPedagogicEvent",
+      "@type": "owl:DatatypeProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Associates each game section with one or more pedagogic events from the Gagne's nine events of instructions. These events ordered in sequence are (1) gaining attention, (2) informing learning objectives, (3) recalling prior learning, (4) presenting learning content, (5) providing learning guidance, (6) eliciting performance, (7) provide feedback, (8) assess performance and, (9) enhance retention and transfer."
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#PedagogicEventIndicator"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Pedagogic Event"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "_:Ne927599ba04144b0a5ea4cbf70a93f8b",
+      "@type": "owl:AllDisjointClasses",
+      "owl:members": {
+        "@list": [
+          {
+            "@id": "http://ns.inria.fr/ludo/v1/gamemodel#CompleteGameStructure"
+          },
+          {
+            "@id": "http://ns.inria.fr/ludo/v1/gamemodel#Presentation-basedStructure"
+          },
+          {
+            "@id": "http://ns.inria.fr/ludo/v1/gamemodel#Scenario-basedStructure"
+          },
+          {
+            "@id": "http://ns.inria.fr/ludo/v1/gamemodel#Training-basedStructure"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasGameDimention",
+      "@type": "owl:ObjectProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Has Game Dimention"
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameSimulation"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Has Game Dimention"
+      },
+      "rdfs:range": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameDimension"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameDimension",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Represents the virtual space in which the game simulation takes place in 2D or 3D."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Game Dimension"
+      },
+      "rdfs:subClassOf": {
+        "@id": "owl:Thing"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasText",
+      "@type": "owl:DatatypeProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Has text"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Has text"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#SeriousGame",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Serious Game"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Serious Game"
+      },
+      "rdfs:subClassOf": {
+        "@id": "owl:Thing"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasInventoryQuantity",
+      "@type": "owl:DatatypeProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Has inventory quantity"
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#InventoryState"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Has inventory quantity"
+      },
+      "rdfs:range": {
+        "@id": "xsd:integer"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasInventory",
+      "@type": "owl:ObjectProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Has Inventory"
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GamePlayer"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Has Inventory"
+      },
+      "rdfs:range": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#Inventory"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasInteractionRuleSubject",
+      "@type": "owl:ObjectProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Interaction Rule Subject"
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameInteractionRule"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Interaction Rule Subject"
+      },
+      "rdfs:range": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameObject"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#ObjectImage",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The object image is represented using one or more image components"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Object Image"
+      },
+      "rdfs:subClassOf": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#Appearance"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#PedagogicEventIndicator",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Each game section is associated with one or more pedagogic events from the Gagnes nine events of instructions"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Pedagogic Event Indicator"
+      },
+      "rdfs:subClassOf": {
+        "@id": "owl:Thing"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasObjectVitality",
+      "@type": "owl:DatatypeProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Vitality of an object such as life or interrelated attributes such as health, energy, strength, social and etc."
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#ObjectVitality"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Has Object Vitality"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "dbpedia:National_Institute_for_Research_in_Computer_Science_and_Control",
+      "@type": "foaf:Organization"
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasGameDimension",
+      "@type": "owl:DatatypeProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The game dimension refers to the virtual space of which the game simulation takes place. It can either be 2D or 3D."
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameDimension"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Has Game Dimension"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#Motion",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Motion refers to the actual translation of game object position in the game world. A motion is subject to a force and also constraints (external force)."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Motion"
+      },
+      "rdfs:subClassOf": {
+        "@id": "owl:Thing"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameEvent",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Is the happening associated to a game scenario. A game event is composed of a set of game act and an event trigger which initiate the game event."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Game Event"
+      },
+      "rdfs:subClassOf": {
+        "@id": "owl:Thing"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasInputEvent",
+      "@type": "owl:ObjectProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Has Input Event"
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameControl"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Has Input Event"
+      },
+      "rdfs:range": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#InputEvent"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#Appearance",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The visual appearance of a game object"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Appearance"
+      },
+      "rdfs:subClassOf": {
+        "@id": "owl:Thing"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#ArtRequirement",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Art requirements related the game through expressive written text"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Art Requirement"
+      },
+      "rdfs:subClassOf": {
+        "@id": "owl:Thing"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasEventTriggerClass",
+      "@type": "owl:DatatypeProperty",
+      "ns1:term_status": "stable",
+      "owl:propertyDisjointWith": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasEventTriggerCommand"
+      },
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Event triggers are used to invoke the transition between game sections and activate the game events within a game scenario. They can be classified into four distinct classes, namely: Input trigger detects user input via hardware interface or graphical user interface (GUI); Time trigger is essentially a countdown timer with an interval value with frequency of once, to repeat infinitely or to repeat finitely; Proximity trigger like input trigger has a hotspot that detects the collision of a specified game object, a class of game object or a group of game objects from different classes; Game mechanics trigger is associated to a range of game application related of events such media event, game event and simulation event. Each event trigger is associated with a command that specify the transition between game sections or activation of a game event."
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#EventTrigger"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Has Event Trigger Class"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasForce",
+      "@type": "owl:ObjectProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Has force"
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#Motion"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Has force"
+      },
+      "rdfs:range": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#Force"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasMotion",
+      "@type": "owl:ObjectProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Has Motion"
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#Action"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Has Motion"
+      },
+      "rdfs:range": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#Motion"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasMatter",
+      "@type": "owl:DatatypeProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Each game rule is paired with an outcome which has a matter and an operation to add or subtract a value from the matter. Matter in the context of game refers to an item, an attribute or permission."
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameInteractionRuleOutcome"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Interaction Rule Outcome Matter"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel",
+      "@type": "owl:Ontology"
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#Score",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "owl:disjointWith": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#Vital"
+      },
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Score"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Score"
+      },
+      "rdfs:subClassOf": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameAttribute"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameResult",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Game Result"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Game Result"
+      },
+      "rdfs:subClassOf": {
+        "@id": "owl:Thing"
+      }
+    },
+    {
+      "@id": "_:Nd7622550381e4b6794a7d08d436da837",
+      "@type": "owl:AllDisjointClasses",
+      "owl:members": {
+        "@list": [
+          {
+            "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameAttribute"
+          },
+          {
+            "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameControl"
+          },
+          {
+            "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameRecord"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "_:Ne83ce05df1f34528a45c24a4a1ae96b2",
+      "@type": "owl:AllDisjointClasses",
+      "owl:members": {
+        "@list": [
+          {
+            "@id": "http://ns.inria.fr/ludo/v1/gamemodel#Action"
+          },
+          {
+            "@id": "http://ns.inria.fr/ludo/v1/gamemodel#Appearance"
+          },
+          {
+            "@id": "http://ns.inria.fr/ludo/v1/gamemodel#Intelligence"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasGameContext",
+      "@type": "owl:ObjectProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Has Game Context"
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameStructure"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Has Game Context"
+      },
+      "rdfs:range": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameContext"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasArtRequirement",
+      "@type": "owl:ObjectProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Has art requirement"
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameTheme"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Has art requirement"
+      },
+      "rdfs:range": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#ArtRequirement"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasGoalConditionDescription",
+      "@type": "owl:DatatypeProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The description of the goal condition"
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GoalCondition"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Goal Condition description"
+      },
+      "rdfs:range": {
+        "@id": "rdfs:Literal"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#Action",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The action of a game object, it consists of motion, animation, sound and vital updates."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Action"
+      },
+      "rdfs:subClassOf": {
+        "@id": "owl:Thing"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasGameScenario",
+      "@type": "owl:ObjectProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Has Game Scenario"
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameSimulation"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Has Game Scenario"
+      },
+      "rdfs:range": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameScenario"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameObject",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Represents virtual things that populate the game world and can be designed to have a combination of abilities such as decision making, moving, acting and responding to surroundings and game players input simulating their existence in the game world."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Game Object"
+      },
+      "rdfs:subClassOf": {
+        "@id": "owl:Thing"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#ObjectVitality",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Vitality of an object such as life or interrelated attributes such as health, energy, strength, social and etc."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Object Vitality"
+      },
+      "rdfs:subClassOf": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#ObjectAttribute"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasObjectVitalityValue",
+      "@type": "owl:DatatypeProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Object Vitality Value"
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#ObjectVitality"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Object Vitality Value"
+      },
+      "rdfs:range": {
+        "@id": "xsd:integer"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#Vital",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Game designers can choose to represent the game object using a single vital definition such as life or further elaborate the vitality of a game object into interrelated attributes such as health, energy, strength, social and etc. "
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Vital"
+      },
+      "rdfs:subClassOf": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameAttribute"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameAct",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The performance of a game object in a game event. It consists of a game object and a game acting script that describe how the game object should move, animate, sound and interact with other game object in a game scenario."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Game Act"
+      },
+      "rdfs:subClassOf": {
+        "@id": "owl:Thing"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasGoalCondition",
+      "@type": "owl:ObjectProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Has Goal Condition"
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameObjective"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Has Goal Condition"
+      },
+      "rdfs:range": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GoalCondition"
+      }
+    },
+    {
+      "@id": "_:N4d751c151e8845458febe3da4204050d",
+      "@type": "owl:AllDisjointClasses",
+      "owl:members": {
+        "@list": [
+          {
+            "@id": "http://ns.inria.fr/ludo/v1/gamemodel#Graphic"
+          },
+          {
+            "@id": "http://ns.inria.fr/ludo/v1/gamemodel#Sound"
+          },
+          {
+            "@id": "http://ns.inria.fr/ludo/v1/gamemodel#Video"
+          },
+          {
+            "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasText"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasGameObjective",
+      "@type": "owl:ObjectProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "This property relates with a Game Objective. Can be used for Game Scenario and Inventory objects."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Has Game Objective"
+      },
+      "rdfs:range": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameObjective"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#Force",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "A motion is subject to a force"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Force"
+      },
+      "rdfs:subClassOf": {
+        "@id": "owl:Thing"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameObjective",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Represents the goal associated to a game scenario"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Game Objective"
+      },
+      "rdfs:subClassOf": {
+        "@id": "owl:Thing"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameKnowledgeBase",
+      "@type": "owl:Class",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "A Knowledge Base to be used by the game."
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Game Knowledge Base"
+      },
+      "rdfs:subClassOf": {
+        "@id": "void:Dataset"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#Checkbox",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Checkbox"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Checkbox"
+      },
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GUIComponent"
+        },
+        {
+          "@id": "owl:Thing"
+        }
+      ]
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasVirtualCamera",
+      "@type": "owl:ObjectProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Has Virtual Camera"
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameScenario"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Has Virtual Camera"
+      },
+      "rdfs:range": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#VirtualCamera"
+      }
+    },
+    {
+      "@id": "_:Ncf6133a7232b408e95cf352bb03acb72",
+      "@type": "owl:AllDisjointClasses",
+      "owl:members": {
+        "@list": [
+          {
+            "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameEvent"
+          },
+          {
+            "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameObject"
+          },
+          {
+            "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameObjective"
+          },
+          {
+            "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GamePlayer"
+          },
+          {
+            "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GamePresentation"
+          },
+          {
+            "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameRule"
+          },
+          {
+            "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameScenario"
+          },
+          {
+            "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameSimulation"
+          },
+          {
+            "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameStructure"
+          },
+          {
+            "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameTheme"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#Scenario-basedStructure",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Scenario-based Structure"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Scenario-based Structure"
+      },
+      "rdfs:subClassOf": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameStructure"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameTempo",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Represents the realtion between the pace of the time in a game and the time in the real world."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Game Tempo"
+      },
+      "rdfs:subClassOf": {
+        "@id": "owl:Thing"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasGameEvent",
+      "@type": "owl:ObjectProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Has Game Event"
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameScenario"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Has Game Event"
+      },
+      "rdfs:range": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameEvent"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasConstraint",
+      "@type": "owl:ObjectProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Has constraint"
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#Motion"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Has constraint"
+      },
+      "rdfs:range": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#Constraint"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasAnimation",
+      "@type": "owl:ObjectProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Has animation"
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#Action"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Has animation"
+      },
+      "rdfs:range": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#Animation"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasVitalUpdate",
+      "@type": "owl:DatatypeProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Has Vital Update"
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#Action"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Has Vital Update"
+      },
+      "rdfs:range": {
+        "@id": "xsd:double"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#Training-basedStructure",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Training-based Structure"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Training-based Structure"
+      },
+      "rdfs:subClassOf": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameStructure"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameSimulation",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Represents the simulation of a game scenario and is governed by a set of rules that define the interactivity, physical and temporal properties of the virtual world. It has game rules, game dimension, game tempo and game physics."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Game Simulation"
+      },
+      "rdfs:subClassOf": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameContext"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameScoringRule",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Only applies to game player and it defines what to be awarded to the game player when a scoring condition is met."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Game Scoring Rule"
+      },
+      "rdfs:subClassOf": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameRule"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasDifficultyIndicator",
+      "@type": "owl:ObjectProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Has difficulty indicator"
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameScenario"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Has difficulty indicator"
+      },
+      "rdfs:range": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#DifficultyIndicator"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasGamePhysics",
+      "@type": "owl:DatatypeProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Has Game Physics"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Has Game Physics"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasInteractionRuleActor",
+      "@type": "owl:ObjectProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Interaction Rule Actor"
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameInteractionRule"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Interaction Rule Actor"
+      },
+      "rdfs:range": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameObject"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasVirtualCameraPosition",
+      "@type": "owl:DatatypeProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Position of the virtual camera in the game world"
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#VirtualCamera"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Has Virtual Camera Position"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#DecidingCondition",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Deciding Condition"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Deciding Condition"
+      },
+      "rdfs:subClassOf": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#Intelligence"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GamePhysics",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Defines the physicality of the game world. It encompasses the collision world and environment forces."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Game Physics"
+      },
+      "rdfs:subClassOf": {
+        "@id": "owl:Thing"
+      }
+    },
+    {
+      "@id": "_:N8038f24742a1451dbc7b2760b02f4322",
+      "@type": "owl:AllDisjointClasses",
+      "owl:members": {
+        "@list": [
+          {
+            "@id": "http://ns.inria.fr/ludo/v1/gamemodel#Animation"
+          },
+          {
+            "@id": "http://ns.inria.fr/ludo/v1/gamemodel#Motion"
+          },
+          {
+            "@id": "http://ns.inria.fr/ludo/v1/gamemodel#Sound"
+          },
+          {
+            "@id": "http://ns.inria.fr/ludo/v1/gamemodel#VitalUpdate"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#VitalUpdate",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Revises the value of vitals for a game object as a measure that takes into account the cost of an action inflicted to the object or the cost of performing an action."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Vital Update"
+      },
+      "rdfs:subClassOf": {
+        "@id": "owl:Thing"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameContext",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Describes the type of game content presented to game players in a game presentation or game simulation."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Game Context"
+      },
+      "rdfs:subClassOf": {
+        "@id": "owl:Thing"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasAppearance",
+      "@type": "owl:ObjectProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Has appearance"
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameObject"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Has appearance"
+      },
+      "rdfs:range": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#Appearance"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasGameRecord",
+      "@type": "owl:ObjectProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Has Game Record"
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GamePlayer"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Has Game Record"
+      },
+      "rdfs:range": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameRecord"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasGameActingScript",
+      "@type": "owl:ObjectProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Game Acting Script"
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameAct"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Game Acting Script"
+      },
+      "rdfs:range": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameActingScript"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasGameAct",
+      "@type": "owl:ObjectProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Has Game Act"
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameEvent"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Has Game Act"
+      },
+      "rdfs:range": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameAct"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasAnimationType",
+      "@type": "owl:DatatypeProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Defines the animation type, either 2D or 3D"
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#Animation"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Has Animation Type"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasGameTempo",
+      "@type": "owl:ObjectProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Has Game Tempo"
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameSimulation"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Has Game Tempo"
+      },
+      "rdfs:range": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameTempo"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasScoringCondition",
+      "@type": "owl:DatatypeProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Every game scoring rule has a scoring condition which has no direct relation with interaction. It can be derived from the state of a game object (e.g. enemy is dead or fire is extinguished), the input statistics (e.g. accuracy is above 80%), the time (e.g. respond is less than 5 seconds or level completed in less than 5 minutes), or the game objective (e.g. objective 1, 2 and 5 are met)."
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameScoringRule"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Scoring Condition"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GoalCondition",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The goal condition checks a track-able value against a constant value defined by the game designer to determine if the game objective has been met or not. The game objective is marked as achieve once the goal condition has been satisfied."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Goal Condition"
+      },
+      "rdfs:subClassOf": {
+        "@id": "owl:Thing"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasSoringRuleOutcome",
+      "@type": "owl:DatatypeProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The outcome of an Scoring Rule"
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameScoringRule"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Scoring Rule Outcome"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameActingScript",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Is composed by one or more acting coordination that instruct how a specific game object act in a defined sequence."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Game Acting Script"
+      },
+      "rdfs:subClassOf": {
+        "@id": "owl:Thing"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasEventTrigger",
+      "@type": "owl:ObjectProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The property to relate a Game Structure or a Game Event with an Event Trigger"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Has event trigger"
+      },
+      "rdfs:range": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#EventTrigger"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#VirtualCamera",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Viewport to the game world"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Virtual Camera"
+      },
+      "rdfs:subClassOf": {
+        "@id": "owl:Thing"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasMass",
+      "@type": "owl:DatatypeProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The amount of matter of an object in Kilograms."
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#Mass"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Mass"
+      },
+      "rdfs:range": {
+        "@id": "xsd:float"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#SoidityState",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The solidity state defines if a game object is solid, whereas the mass affects the motion of the game object."
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Solidity State"
+      },
+      "rdfs:subClassOf": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#ObjectsAttribute"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasGameControl",
+      "@type": "owl:ObjectProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Has Game Control"
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GamePlayer"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Has Game Control"
+      },
+      "rdfs:range": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameControl"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasInteractionRuleOutcome",
+      "@type": "owl:ObjectProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Interaction Rule Outcome"
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameInteractionRule"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Interaction Rule Outcome"
+      },
+      "rdfs:range": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameInteractionRuleOutcome"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasEventTriggerCommand",
+      "@type": "owl:DatatypeProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Has Event trigger command"
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#EventTrigger"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Has Event trigger command"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "void:Dataset",
+      "@type": "owl:Class"
+    },
+    {
+      "@id": "_:N4223b8bae15145f6bb9811178941f970",
+      "@type": "owl:AllDisjointClasses",
+      "owl:members": {
+        "@list": [
+          {
+            "@id": "http://ns.inria.fr/ludo/v1/gamemodel#DecidingCondition"
+          },
+          {
+            "@id": "http://ns.inria.fr/ludo/v1/gamemodel#Learn"
+          },
+          {
+            "@id": "http://ns.inria.fr/ludo/v1/gamemodel#Navigate"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GamePlayer",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The user of the game application who provides inputs to the game system as part of the gaming activity."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Game Player"
+      },
+      "rdfs:subClassOf": {
+        "@id": "foaf:Person"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasGameObject",
+      "@type": "owl:ObjectProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "This property applies for a Game Environment, a Serious Game and an Inventory"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Has Game Object"
+      },
+      "rdfs:range": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameObject"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasGameActObject",
+      "@type": "owl:ObjectProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Has Game Act Object"
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameAct"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Has Game Act Object"
+      },
+      "rdfs:range": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameObject"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameInteractionRuleOutcome",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Outcome of an Interaction Rule"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Interaction Rule Outcome"
+      },
+      "rdfs:subClassOf": {
+        "@id": "owl:Thing"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#ObjectsAttribute",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Objects attribute"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Objects attribute"
+      },
+      "rdfs:subClassOf": {
+        "@id": "owl:Thing"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasSound",
+      "@type": "owl:ObjectProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Has Sound"
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#Action"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Has Sound"
+      },
+      "rdfs:range": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#Sound"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasPedagogicEventIndicator",
+      "@type": [
+        "owl:FunctionalProperty",
+        "owl:ObjectProperty"
+      ],
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Has Pedagogic Event Indicator"
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameStructure"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Has Pedagogic Event Indicator"
+      },
+      "rdfs:range": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#PedagogicEventIndicator"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasURI",
+      "@type": "owl:ObjectProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Uniform Resource Identifier"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "URI"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GamePresentation",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "A virtual canvas that holds media components and GUI components to form a game menu, a game notification or a cut-scene to present information about the game and allow them to navigate through the game structure"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Game Presentation"
+      },
+      "rdfs:subClassOf": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameContext"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#Presentation-basedStructure",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Presentation-based Structure"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Presentation-based Structure"
+      },
+      "rdfs:subClassOf": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameStructure"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasGameTheme",
+      "@type": "owl:ObjectProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Has Game Theme"
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#SeriousGame"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Has Game Theme"
+      },
+      "rdfs:range": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameTheme"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasHardwareInterface",
+      "@type": "owl:DatatypeProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Examples of hardware interface include keyboard, mouse, gamepad, joystick, motionsensor, camera and microphone."
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameControlInterface"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Has hardware Interface"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "_:N6c0576fc534744128fba493083511adb",
+      "@type": "owl:AllDisjointClasses",
+      "owl:members": {
+        "@list": [
+          {
+            "@id": "http://ns.inria.fr/ludo/v1/gamemodel#InventoryState"
+          },
+          {
+            "@id": "http://ns.inria.fr/ludo/v1/gamemodel#Mass"
+          },
+          {
+            "@id": "http://ns.inria.fr/ludo/v1/gamemodel#SoidityState"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#Constraint",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "External forces"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Constraint"
+      },
+      "rdfs:subClassOf": {
+        "@id": "owl:Thing"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#Learn",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Learn"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Learn"
+      },
+      "rdfs:subClassOf": {
+        "@id": "owl:Thing"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameRecord",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "A game record is a log of game players achievements in the game"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Game Record"
+      },
+      "rdfs:subClassOf": {
+        "@id": "owl:Thing"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#Navigate",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Navigate"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Navigate"
+      },
+      "rdfs:subClassOf": {
+        "@id": "owl:Thing"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameControl",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Provides game player the channel to control game objects"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Game Control"
+      },
+      "rdfs:subClassOf": {
+        "@id": "owl:Thing"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#ObjectAttribute",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Data properties that represent a game objects vitality, physical being, cognitive state and ownership"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Object Atrribute"
+      },
+      "rdfs:subClassOf": {
+        "@id": "owl:Thing"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#Button",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Button"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Button"
+      },
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GUIComponent"
+        },
+        {
+          "@id": "owl:Thing"
+        }
+      ]
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameControlInterface",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "owl:disjointWith": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#InputEvent"
+      },
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Game Control Interface"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Game Control Interface"
+      },
+      "rdfs:subClassOf": {
+        "@id": "owl:Thing"
+      }
+    },
+    {
+      "@id": "foaf:Person",
+      "@type": "owl:Class"
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasGameKnowledgeBase",
+      "@type": "owl:ObjectProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Has Game Knowledge-Base"
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#SeriousGame"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Has Game Knowledge-Base"
+      },
+      "rdfs:range": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameKnowledgeBase"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#InventoryState",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The inventory is defined to hold a limited supply of consumable for a game object."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Inventory State"
+      },
+      "rdfs:subClassOf": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#ObjectAttribute"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#RawResult",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Raw result"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Raw result"
+      },
+      "rdfs:subClassOf": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameResult"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#Inventory",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Inventory presents the idea where player can own a number of game objects in the game as part of the game play. An inventory can be a collection of weapons in a shooter game or a collection of magic spell and potions in a role-playing game. In games such as Resident Evil 5 (www.residentevil.com), a game player can hold 9 items in the inventory at any one time."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Inventory"
+      },
+      "rdfs:subClassOf": {
+        "@id": "owl:Thing"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#Mass",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The mass that affects the motion of the game object"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Mass"
+      },
+      "rdfs:subClassOf": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#ObjectAttribute"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#DifficultyIndicator",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "A value associated to the difficulty of the game scenario"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Difficulty Indicator"
+      },
+      "rdfs:subClassOf": {
+        "@id": "owl:Thing"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#ComputedResult",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "owl:disjointWith": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#RawResult"
+      },
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Computed result"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Computed result"
+      },
+      "rdfs:subClassOf": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameResult"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasInteractionCondition",
+      "@type": "owl:DatatypeProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "It refers to the state of actor or the state of the game world"
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameInteractionRule"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Interaction Condition"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasTempoScale",
+      "@type": "owl:DatatypeProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The tempo scale at which the time is passing. This can be used for slow motion effects. When timeScale is 1.0 the time is passing as fast as realtime. When timeScale is 0.5 the time is passing 2x slower than realtime. When timeScale is set to zero the game is basically paused if all your functions are frame rate independent.y. Based on: http://docs.unity3d.com/ScriptReference/Time-timeScale.html"
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameTempo"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Game tempo scale"
+      },
+      "rdfs:range": {
+        "@id": "xsd:double"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasGameEnvironment",
+      "@type": "owl:ObjectProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Has Game Environment"
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameScenario"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Has Game Environment"
+      },
+      "rdfs:range": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameEnvironment"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasIntelligences",
+      "@type": "owl:ObjectProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Has Intelligences"
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameObject"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Has Intelligences"
+      },
+      "rdfs:range": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#Intelligence"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#",
+      "@type": "owl:Ontology",
+      "cc:license": {
+        "@id": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      "dc:creator": [
+        {
+          "@id": "https://plus.google.com/106595696646939943813"
+        },
+        {
+          "@id": "http://www.oscarrodriguez.me"
+        }
+      ],
+      "dc:issued": {
+        "@type": "xsd:date",
+        "@value": "2016-02-01"
+      },
+      "dc:modified": {
+        "@type": "xsd:date",
+        "@value": "2016-08-09"
+      },
+      "dc:publisher": {
+        "@id": "dbpedia:National_Institute_for_Research_in_Computer_Science_and_Control"
+      },
+      "ns0:preferredNamespacePrefix": "gamemodel",
+      "ns0:preferredNamespaceUri": "http://ns.inria.fr/ludo/v1/gamemodel#",
+      "owl:versionInfo": {
+        "@type": "xsd:decimal",
+        "@value": "0.1"
+      },
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Given the increasing amount of structured data published on the Web, many possibilities are open for creating new types of games that use resources from the Web of Data. In particular, if we consider the subcategory of Serious Games in which the object of the game is to educate the user through the interactive discovery of real-life concepts (associated to Semantic Web resources), the inclusion of a semantic representation of the user profile and his contextual information becomes an important element to recommend the user more accurate concepts. Ludo is an ontology that allows the creation of Serious Games with those characteristics."
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasGameResult",
+      "@type": "owl:ObjectProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Has Game Result"
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameRecord"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Has Game Result"
+      },
+      "rdfs:range": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameResult"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#Animation",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "An animation defines the virtual performance of a game object without reference of the position of the game object as a whole."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Animation"
+      },
+      "rdfs:subClassOf": {
+        "@id": "owl:Thing"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasDifficultyIndicatorValue",
+      "@type": "owl:DatatypeProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Has difficulty indicator value"
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#DifficultyIndicator"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Difficulty"
+      },
+      "rdfs:range": {
+        "@id": "xsd:integer"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#CompleteGameStructure",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Complete Game Structure"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Complete Game Structure"
+      },
+      "rdfs:subClassOf": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameStructure"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasAction",
+      "@type": "owl:ObjectProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Has action"
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameObject"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Has action"
+      },
+      "rdfs:range": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#Action"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasGamePlayer",
+      "@type": "owl:ObjectProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Has Game Player"
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#SeriousGame"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Has Game Player"
+      },
+      "rdfs:range": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GamePlayer"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameTheme",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Describes most of the art requirements related the game through expressive written text."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Game Theme"
+      },
+      "rdfs:subClassOf": {
+        "@id": "owl:Thing"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasNormalForce",
+      "@type": "owl:DatatypeProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The normal force"
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#Force"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Normal force"
+      },
+      "rdfs:range": {
+        "@id": "xsd:float"
+      }
+    },
+    {
+      "@id": "http://www.oscarrodriguez.me",
+      "@type": "foaf:Person"
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameInteractionRule",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "owl:disjointWith": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameScoringRule"
+      },
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "It dictates the outcome of the interaction from two game objects."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Game Interaction Rule"
+      },
+      "rdfs:subClassOf": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameRule"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasGameAttribute",
+      "@type": "owl:ObjectProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Has Game Attribute"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Has Game Attribute"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasFrontEndDisplay",
+      "@type": "owl:ObjectProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Has front end display"
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameSimulation"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Has front end display"
+      },
+      "rdfs:range": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamepresentation#FrontEndDisplay"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameStructure",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Describes the architecture and flow of the game. It segments game into game sections. A game section is composed of a game context, pedagogic event indicator and event trigger."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Game Structure"
+      },
+      "rdfs:subClassOf": {
+        "@id": "owl:Thing"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#Intelligence",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Provides game object the ability to decide, navigate and even learn."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Intelligence"
+      },
+      "rdfs:subClassOf": {
+        "@id": "owl:Thing"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#EventTrigger",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Event triggers are used to invoke the transition between game sections and activate the game events within a game scenario"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Event Trigger"
+      },
+      "rdfs:subClassOf": {
+        "@id": "owl:Thing"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameRule",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "States the relationship between game objects and game world, and the effect of an interaction. It can either be a Game Scoring Rule or Game Interaction Rule."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Game Rule"
+      },
+      "rdfs:subClassOf": {
+        "@id": "owl:Thing"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasInteractionRuleOutcomeOperation",
+      "@type": "owl:DatatypeProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Rewarding the player with any game object can mean give (add) or take away (subtract) an item or increase (add) or decrease (subtract) in the value of an attribute to provide the game player the advantage to succeed in the game."
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameInteractionRuleOutcome"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Interaction Rule Outcome Operation"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasGameStructure",
+      "@type": "owl:ObjectProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Has Game Structure"
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#SeriousGame"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Has Game Structure"
+      },
+      "rdfs:range": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameStructure"
+      }
+    },
+    {
+      "@id": "https://plus.google.com/106595696646939943813",
+      "@type": "foaf:Person"
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameScenario",
+      "@type": "owl:Class",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "A description of a situation which require game player to overcome a number of challenges in order to achieve the defined objectives. It is also commonly termed as game level in gaming jargon."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Game Scenario"
+      },
+      "rdfs:subClassOf": {
+        "@id": "owl:Thing"
+      }
+    },
+    {
+      "@id": "_:N8a79aa8445d146fea6cbb038d072fb82",
+      "@type": "owl:AllDisjointClasses",
+      "owl:members": {
+        "@list": [
+          {
+            "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameDimension"
+          },
+          {
+            "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GamePhysics"
+          },
+          {
+            "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameTempo"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "http://ns.inria.fr/ludo/v1/gamemodel#hasActingCoordination",
+      "@type": "owl:DatatypeProperty",
+      "ns1:term_status": "stable",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The coordination of a game object can involve appear (for generation and re- spawning of game object), animating an action, playing a sound, moving towards a checkpoint, interacting with another game object or a composition of these."
+      },
+      "rdfs:domain": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#GameActingScript"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "http://ns.inria.fr/ludo/v1/gamemodel#"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Has Game Acting Coordination"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    }
+  ]
+}
+

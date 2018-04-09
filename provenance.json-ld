@@ -1,0 +1,1106 @@
+{
+  "@context": {
+    "dcterms": "http://purl.org/dc/terms/",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "prv": "http://purl.org/net/provenance/ns#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "wot": "http://xmlns.com/wot/0.1/",
+    "xhv": "http://www.w3.org/1999/xhtml/vocab#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "prv:HumanAgent",
+      "@type": "owl:Class",
+      "owl:disjointWith": {
+        "@id": "prv:NonHumanAgent"
+      },
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "HumanAgent is a general class that represents agents who are social beings such as persons, organizations, companies."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "prv:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Human Agent"
+      },
+      "rdfs:subClassOf": {
+        "@id": "prov:Agent"
+      }
+    },
+    {
+      "@id": "prv:DataItem",
+      "@type": "owl:Class",
+      "owl:disjointWith": {
+        "@id": "prv:File"
+      },
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "DataItem is a general concept that represents data items of any kind."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "prv:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Data Item"
+      },
+      "rdfs:subClassOf": [
+        {
+          "@id": "http://www.ontologydesignpatterns.org/cp/owl/informationrealization.owl#InformationRealization"
+        },
+        {
+          "@id": "prov:Entity"
+        }
+      ]
+    },
+    {
+      "@id": "_:Nff654b3db0f848d9950f9bf6a18b8a20",
+      "@type": "rdfs:List",
+      "rdf:first": {
+        "@id": "prv:serializedBy"
+      },
+      "rdf:rest": {
+        "@id": "_:N9c8be53921fb44269891c6019b6c1dee"
+      }
+    },
+    {
+      "@id": "prv:DataPublisher",
+      "@type": "owl:Class",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "DataPublisher is a concept that represents entities such as persons, groups, or organizations who use a data providing service (see concept prv:DataProvidingService) to publish data on the Web."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "prv:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Data Publisher"
+      },
+      "rdfs:subClassOf": {
+        "@id": "prv:HumanAgent"
+      }
+    },
+    {
+      "@id": "prov:Activity",
+      "@type": "owl:Class"
+    },
+    {
+      "@id": "prv:DataCreation",
+      "@type": "owl:Class",
+      "owl:disjointWith": {
+        "@id": "prv:DataAccess"
+      },
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "DataCreation is a concept that represents the execution of an activity by which data items have been created."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "prv:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Data Creation"
+      },
+      "rdfs:subClassOf": {
+        "@id": "prov:Activity"
+      }
+    },
+    {
+      "@id": "prv:serializedBy",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "This property refers to a file that serialized a data item."
+      },
+      "rdfs:domain": {
+        "@id": "prv:DataItem"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "prv:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "serialized by"
+      },
+      "rdfs:range": {
+        "@id": "prv:File"
+      }
+    },
+    {
+      "@id": "_:N276112dda1c44729aba72692a0a83d46",
+      "@type": "owl:Class",
+      "owl:unionOf": {
+        "@id": "_:N38f4eeb64a6f4672a32199bbda432c0f"
+      }
+    },
+    {
+      "@id": "dcterms:creator",
+      "@type": "owl:AnnotationProperty"
+    },
+    {
+      "@id": "prov:wasGeneratedBy",
+      "@type": "owl:ObjectProperty"
+    },
+    {
+      "@id": "_:N38f4eeb64a6f4672a32199bbda432c0f",
+      "@type": "rdfs:List",
+      "rdf:first": {
+        "@id": "prv:DataItem"
+      },
+      "rdf:rest": {
+        "@id": "_:N436b7022eabd49f7b99d2ebde48fc8ac"
+      }
+    },
+    {
+      "@id": "http://sw.nokia.com/WebArch-1/Service",
+      "@type": "owl:Class",
+      "rdfs:subClassOf": {
+        "@id": "prv:DataProvidingService"
+      }
+    },
+    {
+      "@id": "foaf:name",
+      "@type": "owl:DatatypeProperty"
+    },
+    {
+      "@id": "prv:usedGuideline",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "This property refers to a creation guideline which guided the execution of a data creation. Examples for creation guidelines are transformation rules, mapping definitions, entailment rules, and database queries. Notice, all creation guidelines have provenance; we strongly encourage to describe this provenance as well, at least as far as available information permits."
+      },
+      "rdfs:domain": {
+        "@id": "prv:DataCreation"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "prv:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "guided by"
+      },
+      "rdfs:range": {
+        "@id": "prv:CreationGuideline"
+      },
+      "rdfs:seeAlso": {
+        "@id": "http://purl.org/net/provenance/files#"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "prov:used"
+      }
+    },
+    {
+      "@id": "prov:actedOnBehalfOf",
+      "@type": "owl:ObjectProperty"
+    },
+    {
+      "@id": "dcterms:description",
+      "@type": "owl:DatatypeProperty"
+    },
+    {
+      "@id": "prov:Plan",
+      "@type": "owl:Class"
+    },
+    {
+      "@id": "dcterms:conformsTo",
+      "@type": "owl:ObjectProperty"
+    },
+    {
+      "@id": "prv:NonHumanActor",
+      "@type": [
+        "owl:Class",
+        "owl:DeprecatedClass"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "This class is deprecated and will be removed from the Provenance Vocabulary in the next revision. prv:NonHumanActor was renamed to prv:NonHumanAgent in the process of making the Provenance Vocabulary a specialization of W3C's PROV-O. Hence, use prv:NonHumanAgent instead."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "prv:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Non-Human Actor"
+      }
+    },
+    {
+      "@id": "http://sw.nokia.com/WebArch-1/Server",
+      "@type": "owl:Class",
+      "rdfs:subClassOf": {
+        "@id": "prv:DataProvidingService"
+      }
+    },
+    {
+      "@id": "dcterms:replaces",
+      "@type": "owl:ObjectProperty"
+    },
+    {
+      "@id": "xhv:alternate",
+      "@type": "owl:ObjectProperty"
+    },
+    {
+      "@id": "foaf:Document",
+      "@type": "owl:Class"
+    },
+    {
+      "@id": "http://purl.org/net/provenance/ns.rdf",
+      "@type": "foaf:Document"
+    },
+    {
+      "@id": "http://www.ontologydesignpatterns.org/ont/web/irw.owl#WebResource",
+      "@type": "owl:Class"
+    },
+    {
+      "@id": "_:N436b7022eabd49f7b99d2ebde48fc8ac",
+      "@type": "rdfs:List",
+      "rdf:first": {
+        "@id": "prv:File"
+      },
+      "rdf:rest": {
+        "@list": []
+      }
+    },
+    {
+      "@id": "_:Nb87977cccf6b44f9b763c5183b730912",
+      "@type": "owl:Restriction",
+      "owl:maxCardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      },
+      "owl:onProperty": {
+        "@id": "prv:accessedService"
+      }
+    },
+    {
+      "@id": "http://users.ox.ac.uk/~zool0770/foaf.rdf#me",
+      "@type": "foaf:Person",
+      "foaf:homepage": {
+        "@id": "http://users.ox.ac.uk/~zool0770/"
+      },
+      "foaf:name": {
+        "@language": "en",
+        "@value": "Jun Zhao"
+      }
+    },
+    {
+      "@id": "prv:operatedBy",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "This property refers to a human agent who was operating a non-human agent. For instance, a service provider operates a data providing service (see concept prv:DataProvidingService). Another example is a human agent who operates a non-human data creating agent."
+      },
+      "rdfs:domain": {
+        "@id": "prv:NonHumanAgent"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "prv:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "operated by"
+      },
+      "rdfs:range": {
+        "@id": "prv:HumanAgent"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "prov:actedOnBehalfOf"
+      }
+    },
+    {
+      "@id": "prv:containedBy",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "This property refers to a data item that contained a data item. Hence, this property refers to another data item of a larger granularity (e.g. an RDF triple is usually contained in an RDF graph)."
+      },
+      "rdfs:domain": {
+        "@id": "prv:DataItem"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "prv:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "contained in"
+      },
+      "rdfs:range": {
+        "@id": "prv:DataItem"
+      }
+    },
+    {
+      "@id": "prv:",
+      "@type": "owl:Ontology",
+      "dcterms:created": {
+        "@type": "xsd:dateTime",
+        "@value": "2009-08-25T12:00:00+00:00"
+      },
+      "dcterms:creator": [
+        {
+          "@id": "http://users.ox.ac.uk/~zool0770/foaf.rdf#me"
+        },
+        {
+          "@id": "http://olafhartig.de/foaf.rdf#olaf"
+        }
+      ],
+      "dcterms:description": {
+        "@language": "en",
+        "@value": "The Provenance Vocabulary provides classes and properties for describing provenance of Web data. The vocabulary focuses on two main use cases: 1.) It enables consumers of Web data to describe provenance of data retrieved from the Web and of data derived from such Web data. 2.) It enables providers of Web data to publish provenance-related metadata about their data. Notice, the vocabulary is not intended for describing provenance of other kinds of Web content. The Provenance Vocabulary is designed as a Web data specific specialization of the W3C PROV Ontology (PROV-O); classes and properties provided by the vocabulary are domain specific extensions of the more general concepts introduced in PROV-O. As a consequence, any Provenance Vocabulary based description of provenance can be easily interpreted and exchanged according to the W3C PROV family of standards."
+      },
+      "dcterms:modified": {
+        "@type": "xsd:dateTime",
+        "@value": "2012-03-14T12:00:00+00:00"
+      },
+      "dcterms:title": {
+        "@language": "en",
+        "@value": "Provenance Vocabulary Core Ontology namespace"
+      }
+    },
+    {
+      "@id": "wot:Endorsement",
+      "@type": "owl:Class"
+    },
+    {
+      "@id": "dcterms:created",
+      "@type": "owl:DatatypeProperty"
+    },
+    {
+      "@id": "prv:Immutable",
+      "@type": "owl:Class",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Immutable is a concept that represents entities which are immutable."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "prv:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Data Item"
+      },
+      "rdfs:subClassOf": {
+        "@id": "prov:Entity"
+      }
+    },
+    {
+      "@id": "http://creativecommons.org/licenses/by/1.0/",
+      "@type": "owl:Thing"
+    },
+    {
+      "@id": "prv:yieldedBy",
+      "@type": [
+        "owl:ObjectProperty",
+        "owl:DeprecatedProperty"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "This property is deprecated and will be removed from the Provenance Vocabulary in the next revision. prv:yieldedBy was deprecated in the process of making the Provenance Vocabulary a specialization of W3C's PROV-O. Hence, use prov:wasGeneratedBy instead."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "prv:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "yielded by"
+      }
+    },
+    {
+      "@id": "foaf:Group",
+      "@type": "owl:Class",
+      "rdfs:subClassOf": {
+        "@id": "prv:HumanAgent"
+      }
+    },
+    {
+      "@id": "_:N9c8be53921fb44269891c6019b6c1dee",
+      "@type": "rdfs:List",
+      "rdf:first": {
+        "@id": "prv:createdBy"
+      },
+      "rdf:rest": {
+        "@list": []
+      }
+    },
+    {
+      "@id": "prv:Actor",
+      "@type": [
+        "owl:Class",
+        "owl:DeprecatedClass"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "This class is deprecated and will be removed from the Provenance Vocabulary in the next revision. prv:Actor was deprecated in the process of making the Provenance Vocabulary a specialization of W3C's PROV-O. Hence, use one of the more specific classes prv:HumanAgent and prv:NonHumanAgent instead; or, if such a specialization is unsuitable for the use case at hand, directly use the general class prov:Agent as defined by PROV-O."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "prv:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Actor"
+      }
+    },
+    {
+      "@id": "prv:deployedSoftware",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "This property refers to the software that was run by a non-human actor (usually a service)."
+      },
+      "rdfs:domain": {
+        "@id": "prv:NonHumanAgent"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "prv:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "runs"
+      }
+    },
+    {
+      "@id": "http://www.w3.org/TR/rdfa-syntax",
+      "@type": "owl:Thing"
+    },
+    {
+      "@id": "foaf:Organization",
+      "@type": "owl:Class",
+      "rdfs:subClassOf": {
+        "@id": "prv:HumanAgent"
+      }
+    },
+    {
+      "@id": "prv:HumanActor",
+      "@type": [
+        "owl:DeprecatedClass",
+        "owl:Class"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "This class is deprecated and will be removed from the Provenance Vocabulary in the next revision. prv:HumanActor was renamed to prv:HumanAgent in the process of making the Provenance Vocabulary a specialization of W3C's PROV-O. Hence, use prv:HumanAgent instead."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "prv:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Human Actor"
+      }
+    },
+    {
+      "@id": "prv:createdBy",
+      "@type": "owl:ObjectProperty",
+      "owl:propertyChainAxiom": {
+        "@id": "_:Nff654b3db0f848d9950f9bf6a18b8a20"
+      },
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "This property refers to the creation of a data item (or a file that serializes data items)."
+      },
+      "rdfs:domain": {
+        "@id": "_:N276112dda1c44729aba72692a0a83d46"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "prv:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "created by"
+      },
+      "rdfs:range": {
+        "@id": "prv:DataCreation"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "prov:wasGeneratedBy"
+      }
+    },
+    {
+      "@id": "prv:completedAt",
+      "@type": [
+        "owl:FunctionalProperty",
+        "owl:DatatypeProperty"
+      ],
+      "owl:equivalentProperty": {
+        "@id": "prov:endedAtTime"
+      },
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "This property refers to the time an activity has been completed."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "prv:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "completed at"
+      }
+    },
+    {
+      "@id": "prv:retrievedBy",
+      "@type": [
+        "owl:ObjectProperty",
+        "owl:FunctionalProperty"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "This property refers to the data access by which an immutable entity has been retrieved from the Web. Each entity that has this property is a Web representation."
+      },
+      "rdfs:domain": [
+        {
+          "@id": "_:N84a65d90e44843058347f4ed82589f8d"
+        },
+        {
+          "@id": "prv:Immutable"
+        }
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "prv:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "retrieved by"
+      },
+      "rdfs:range": {
+        "@id": "prv:DataAccess"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "prov:wasGeneratedBy"
+      }
+    },
+    {
+      "@id": "dcterms:title",
+      "@type": "owl:DatatypeProperty"
+    },
+    {
+      "@id": "prv:usedData",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "This property refers to a source data item that has been used during the creation of a data item. Examples for source data are the content of a document used for machine learning, the statements in a knowledge base used to entail a new statement, and the entries in a database used to answer a query. Notice, all source data has provenance; we strongly encourage to describe this provenance as well, at least as far as available information permits."
+      },
+      "rdfs:domain": {
+        "@id": "prv:DataCreation"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "prv:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "used"
+      },
+      "rdfs:range": {
+        "@id": "prv:DataItem"
+      },
+      "rdfs:seeAlso": {
+        "@id": "http://purl.org/net/provenance/files#"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "prov:used"
+      }
+    },
+    {
+      "@id": "prov:Entity",
+      "@type": "owl:Class"
+    },
+    {
+      "@id": "prv:DataProvidingService",
+      "@type": "owl:Class",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "DataProvidingService is a concept that represents a non-human agent - usually a Web service or a server - that processes data access requests and actually sends the requested Web representations over the Web."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "prv:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Data Providing Service"
+      },
+      "rdfs:subClassOf": {
+        "@id": "prv:NonHumanAgent"
+      }
+    },
+    {
+      "@id": "wot:PubKey",
+      "@type": "owl:Class"
+    },
+    {
+      "@id": "prv:precededBy",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "This property may be used to make the relationship between different version of a data item explicit. More precisely, this property refers to an immediately preceding version of a data item; hence, the new version (i.e. the subject) has been created using the old version (i.e. the object). We strongly encourage to also describe this creation of the new version explicitly."
+      },
+      "rdfs:domain": {
+        "@id": "prv:DataItem"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "prv:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "immediately preceded by"
+      },
+      "rdfs:range": {
+        "@id": "prv:DataItem"
+      },
+      "rdfs:subPropertyOf": [
+        {
+          "@id": "_:N804ed73e8a7d4f38af86eeb62ad8f5c0"
+        },
+        {
+          "@id": "dcterms:replaces"
+        }
+      ]
+    },
+    {
+      "@id": "wot:endorser",
+      "@type": "owl:ObjectProperty"
+    },
+    {
+      "@id": "prv:DataAccess",
+      "@type": "owl:Class",
+      "owl:disjointWith": {
+        "@id": "prv:DataCreation"
+      },
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "DataAccess is a concept that represents the completed execution of an activity by which an immutable data item has been retrieved from the Web."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "prv:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Data Access"
+      },
+      "rdfs:subClassOf": [
+        {
+          "@id": "_:Nd1077fe5532144dea1d1381415a7ffc0"
+        },
+        {
+          "@id": "prov:Activity"
+        },
+        {
+          "@id": "_:Nb87977cccf6b44f9b763c5183b730912"
+        }
+      ]
+    },
+    {
+      "@id": "http://olafhartig.de/foaf.rdf#olaf",
+      "@type": "foaf:Person",
+      "foaf:homepage": {
+        "@id": "http://olafhartig.de/"
+      },
+      "foaf:name": {
+        "@language": "en",
+        "@value": "Olaf Hartig"
+      }
+    },
+    {
+      "@id": "prv:accessedService",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "This property refers to the service that provided the Web representation during the execution of a data access."
+      },
+      "rdfs:domain": {
+        "@id": "prv:DataAccess"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "prv:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "accessed"
+      },
+      "rdfs:range": {
+        "@id": "prv:DataProvidingService"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "prov:wasAssociatedWith"
+      }
+    },
+    {
+      "@id": "prov:wasAssociatedWith",
+      "@type": "owl:ObjectProperty"
+    },
+    {
+      "@id": "prv:performedAt",
+      "@type": [
+        "owl:DatatypeProperty",
+        "owl:DeprecatedProperty"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "This property has been renamed to prv:completedAt. Hence, prv:performedAt is deprecated and will be removed from the Provenance Vocabulary in the next revision."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "prv:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "executed at"
+      }
+    },
+    {
+      "@id": "http://trdf.sourceforge.net/provenance/ns.html",
+      "@type": "foaf:Document",
+      "dcterms:conformsTo": {
+        "@id": "http://www.w3.org/TR/rdfa-syntax"
+      },
+      "dcterms:description": {
+        "@language": "en",
+        "@value": "This documents specifies the Provenance Vocabulary Core Ontology which defines the main classes and properties provided by the Provenance Vocabulary."
+      },
+      "dcterms:title": {
+        "@language": "en",
+        "@value": "Provenance Vocabulary Core Ontology Specification"
+      },
+      "foaf:primaryTopic": {
+        "@id": "prv:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Document that defines the core ontology of the Provenance Vocabulary"
+      },
+      "wot:assurance": {
+        "@id": "http://trdf.sourceforge.net/provenance/ns.html.sig"
+      },
+      "xhv:alternate": {
+        "@id": "http://trdf.sourceforge.net/provenance/ns.rdf"
+      },
+      "xhv:license": {
+        "@id": "http://creativecommons.org/licenses/by/1.0/"
+      }
+    },
+    {
+      "@id": "prov:endedAtTime",
+      "@type": "owl:DatatypeProperty"
+    },
+    {
+      "@id": "prv:Execution",
+      "@type": [
+        "owl:DeprecatedClass",
+        "owl:Class"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "This class is deprecated and will be removed from the Provenance Vocabulary in the next revision. prv:Execution was deprecated in the process of making the Provenance Vocabulary a specialization of W3C's PROV-O. Hence, use prov:Activity instead."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "prv:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Execution"
+      }
+    },
+    {
+      "@id": "wot:assurance",
+      "@type": "owl:ObjectProperty"
+    },
+    {
+      "@id": "http://trdf.sourceforge.net/provenance/ns.html.sig",
+      "@type": "wot:Endorsement",
+      "dcterms:title": {
+        "@language": "en",
+        "@value": "Detached signature"
+      },
+      "wot:endorser": {
+        "@id": "http://olafhartig.de/foaf.rdf#pubkey2011"
+      }
+    },
+    {
+      "@id": "prov:used",
+      "@type": "owl:ObjectProperty"
+    },
+    {
+      "@id": "prv:performedBy",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "This property refers to an agent that/who performed an activity."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "prv:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "performed by"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "prov:wasAssociatedWith"
+      }
+    },
+    {
+      "@id": "http://olafhartig.de/",
+      "@type": "foaf:Document"
+    },
+    {
+      "@id": "foaf:homepage",
+      "@type": "owl:ObjectProperty"
+    },
+    {
+      "@id": "http://olafhartig.de/foaf.rdf#pubkey2011",
+      "@type": "wot:PubKey"
+    },
+    {
+      "@id": "prv:accessedResource",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "This property refers to the Web resource that has been accessed during the execution of a data access. More precisely, the request of the referenced Web resource resulted in retrieving the representation that has been retrieved by the corresponding prv:DataAccess execution."
+      },
+      "rdfs:domain": {
+        "@id": "prv:DataAccess"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "prv:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "accessed"
+      },
+      "rdfs:range": {
+        "@id": "http://www.ontologydesignpatterns.org/ont/web/irw.owl#WebResource"
+      }
+    },
+    {
+      "@id": "prov:wasRevisionOf",
+      "@type": "owl:ObjectProperty"
+    },
+    {
+      "@id": "prv:File",
+      "@type": "owl:Class",
+      "owl:disjointWith": {
+        "@id": "prv:DataItem"
+      },
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "File is a general class that represents computer files/documents of any kind."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "prv:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "File"
+      },
+      "rdfs:subClassOf": {
+        "@id": "prov:Entity"
+      }
+    },
+    {
+      "@id": "_:N34e71db38265459986fedb07087b76e1",
+      "@type": "rdfs:List",
+      "rdf:first": {
+        "@id": "prv:File"
+      },
+      "rdf:rest": {
+        "@list": []
+      }
+    },
+    {
+      "@id": "http://www.ontologydesignpatterns.org/cp/owl/informationrealization.owl#InformationRealization",
+      "@type": "owl:Class"
+    },
+    {
+      "@id": "foaf:Person",
+      "@type": "owl:Class",
+      "rdfs:subClassOf": {
+        "@id": "prv:HumanAgent"
+      }
+    },
+    {
+      "@id": "xhv:license",
+      "@type": "owl:ObjectProperty"
+    },
+    {
+      "@id": "prv:NonHumanAgent",
+      "@type": "owl:Class",
+      "owl:disjointWith": {
+        "@id": "prv:HumanAgent"
+      },
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "NonHumanAgent is a general class that represents agents who are not social beings."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "prv:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Non-Human Agent"
+      },
+      "rdfs:subClassOf": {
+        "@id": "prov:Agent"
+      }
+    },
+    {
+      "@id": "_:Nd1077fe5532144dea1d1381415a7ffc0",
+      "@type": "owl:Restriction",
+      "owl:maxCardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      },
+      "owl:onProperty": {
+        "@id": "prv:accessedResource"
+      }
+    },
+    {
+      "@id": "prv:usedBy",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "This property refers to a data publisher who used a data providing services at the time the provenance description refers to."
+      },
+      "rdfs:domain": {
+        "@id": "prv:DataProvidingService"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "prv:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "used by"
+      },
+      "rdfs:range": {
+        "@id": "prv:DataPublisher"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "prov:actedOnBehalfOf"
+      }
+    },
+    {
+      "@id": "_:N84a65d90e44843058347f4ed82589f8d",
+      "@type": "owl:Class",
+      "owl:unionOf": {
+        "@id": "_:N8d19c52921fb4a02a5b912bb9f0e5322"
+      }
+    },
+    {
+      "@id": "http://users.ox.ac.uk/~zool0770/",
+      "@type": "foaf:Document"
+    },
+    {
+      "@id": "prv:employedArtifact",
+      "@type": [
+        "owl:ObjectProperty",
+        "owl:DeprecatedProperty"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "This property is deprecated and will be removed from the Provenance Vocabulary in the next revision. prv:employedArtifact was deprecated in the process of making the Provenance Vocabulary a specialization of W3C's PROV-O. Hence, use prov:used instead."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "prv:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "used"
+      }
+    },
+    {
+      "@id": "_:N804ed73e8a7d4f38af86eeb62ad8f5c0",
+      "@type": "owl:ObjectProperty",
+      "owl:inverseOf": {
+        "@id": "prov:wasRevisionOf"
+      }
+    },
+    {
+      "@id": "prov:Agent",
+      "@type": "owl:Class"
+    },
+    {
+      "@id": "prv:Artifact",
+      "@type": [
+        "owl:Class",
+        "owl:DeprecatedClass"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "This class is deprecated and will be removed from the Provenance Vocabulary in the next revision. prv:Artifact was deprecated in the process of making the Provenance Vocabulary a specialization of W3C's PROV-O. Hence, use prov:Entity (or the more specific prv:Immutable) instead."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "prv:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Artifact"
+      }
+    },
+    {
+      "@id": "http://www.ontologydesignpatterns.org/ont/web/irw.owl#WebServer",
+      "@type": "owl:Class",
+      "rdfs:subClassOf": {
+        "@id": "prv:DataProvidingService"
+      }
+    },
+    {
+      "@id": "prv:CreationGuideline",
+      "@type": "owl:Class",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "CreationGuideline is a concept that represents a guideline used to guide the execution of a data creation. Examples for creation guidelines are transformation rules, mapping definitions, entailment rules, and database queries."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "prv:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Creation Guideline"
+      },
+      "rdfs:subClassOf": [
+        {
+          "@id": "prov:Plan"
+        },
+        {
+          "@id": "prv:DataItem"
+        }
+      ]
+    },
+    {
+      "@id": "prv:involvedActor",
+      "@type": [
+        "owl:DeprecatedProperty",
+        "owl:ObjectProperty"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "This property is deprecated and will be removed from the Provenance Vocabulary in the next revision. prv:involvedActor was deprecated in the process of making the Provenance Vocabulary a specialization of W3C's PROV-O. Hence, use prov:wasAssociatedWith instead."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "prv:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "involved"
+      }
+    },
+    {
+      "@id": "_:N8d19c52921fb4a02a5b912bb9f0e5322",
+      "@type": "rdfs:List",
+      "rdf:first": {
+        "@id": "prv:DataItem"
+      },
+      "rdf:rest": {
+        "@id": "_:N34e71db38265459986fedb07087b76e1"
+      }
+    },
+    {
+      "@id": "foaf:primaryTopic",
+      "@type": "owl:ObjectProperty"
+    },
+    {
+      "@id": "dcterms:modified",
+      "@type": "owl:DatatypeProperty"
+    }
+  ]
+}
+
